@@ -64,7 +64,7 @@ class MyApp extends StatelessWidget {
 	@override
 	Widget build(BuildContext context) {
 	return MaterialApp(
-		title: 'Flutter',
+		title: 'OU LOOMIN',
 		debugShowCheckedModeBanner: false,
 		scrollBehavior: MyCustomScrollBehavior(),
 		theme: ThemeData(
