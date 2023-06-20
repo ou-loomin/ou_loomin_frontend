@@ -13,13 +13,13 @@ class Scene extends StatelessWidget {
     return Container(
       width: double.infinity,
       child: Container(
-        // image19aVr (491:1563)
+        // image19AHi (491:1563)
         width: double.infinity,
         height: 86*fem,
         child: ClipRRect(
           borderRadius: BorderRadius.circular(12*fem),
           child: Image.asset(
-            'assets/page-1/images/image-19-pBn.png',
+            'assets/page-1/images/image-19-pbW.png',
             fit: BoxFit.cover,
           ),
         ),

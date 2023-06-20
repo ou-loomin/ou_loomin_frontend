@@ -7,192 +7,84 @@ import 'package:myapp/utils.dart';
 class Scene extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    double baseWidth = 390;
+    double baseWidth = 303;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
     return Container(
       width: double.infinity,
       child: Container(
-        // AWg (161:262)
+        // nSx (370:1358)
         width: double.infinity,
-        height: 844*fem,
+        height: 219*fem,
         decoration: BoxDecoration (
-          color: Color(0xff000000),
-          borderRadius: BorderRadius.circular(16*fem),
-          boxShadow: [
-            BoxShadow(
-              color: Color(0x3f000000),
-              offset: Offset(0*fem, 4*fem),
-              blurRadius: 2*fem,
-            ),
-          ],
+          color: Color(0xbc150628),
+          borderRadius: BorderRadius.circular(42*fem),
         ),
         child: Stack(
           children: [
             Positioned(
-              // MDn (161:309)
-              left: 67.5*fem,
-              top: 298*fem,
+              // rectangle33goE (370:1360)
+              left: 162*fem,
+              top: 183*fem,
               child: Align(
                 child: SizedBox(
-                  width: 256*fem,
-                  height: 30*fem,
-                  child: Text(
-                    'Добро пожаловать в ',
-                    textAlign: TextAlign.center,
-                    style: SafeGoogleFont (
-                      'Montserrat',
-                      fontSize: 24*ffem,
-                      fontWeight: FontWeight.w400,
-                      height: 1.25*ffem/fem,
-                      letterSpacing: -0.5*fem,
-                      color: Color(0xffffffff),
+                  width: 113*fem,
+                  height: 21*fem,
+                  child: Container(
+                    decoration: BoxDecoration (
+                      borderRadius: BorderRadius.circular(19*fem),
+                      border: Border.all(color: Color(0xff2a0d45)),
                     ),
                   ),
                 ),
               ),
             ),
             Positioned(
-              // Zqe (162:476)
-              left: 0*fem,
-              top: 0*fem,
+              // atc (370:1361)
+              left: 28*fem,
+              top: 183*fem,
               child: Container(
-                width: 861*fem,
-                height: 1220*fem,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      // group3t7E (179:615)
-                      margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 12*fem, 254*fem),
-                      width: 479*fem,
-                      height: 257*fem,
-                      child: Image.asset(
-                        'assets/page-1/images/group-3.png',
-                        width: 479*fem,
-                        height: 257*fem,
-                      ),
-                    ),
-                    Container(
-                      // blurbgmgp (231:707)
-                      width: 861*fem,
-                      height: 709*fem,
-                      child: Image.asset(
-                        'assets/page-1/images/blurbg.png',
-                        width: 861*fem,
-                        height: 709*fem,
-                      ),
-                    ),
-                  ],
+                width: 113*fem,
+                height: 27*fem,
+                decoration: BoxDecoration (
+                  borderRadius: BorderRadius.circular(19*fem),
                 ),
-              ),
-            ),
-            Positioned(
-              // 5xQ (162:485)
-              left: 165*fem,
-              top: 704*fem,
-              child: TextButton(
-                onPressed: () {},
-                style: TextButton.styleFrom (
-                  padding: EdgeInsets.zero,
-                ),
-                child: Container(
-                  padding: EdgeInsets.fromLTRB(14*fem, 15*fem, 14*fem, 13*fem),
-                  width: 60*fem,
-                  height: 60*fem,
-                  decoration: BoxDecoration (
-                    color: Color(0xff000000),
-                    borderRadius: BorderRadius.circular(30*fem),
-                  ),
-                  child: Center(
-                    // arrowforward8fn (162:402)
-                    child: SizedBox(
-                      width: 32*fem,
-                      height: 32*fem,
-                      child: Image.asset(
-                        'assets/page-1/images/arrowforward-DPS.png',
-                        width: 32*fem,
-                        height: 32*fem,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            Positioned(
-              // eu2 (504:1201)
-              left: 83*fem,
-              top: 338*fem,
-              child: Container(
-                width: 224.5*fem,
-                height: 40*fem,
                 child: Stack(
                   children: [
                     Positioned(
-                      // oulumena1z (504:1202)
-                      left: 0.5*fem,
+                      // rectangle326c4 (370:1362)
+                      left: 0*fem,
                       top: 0*fem,
                       child: Align(
                         child: SizedBox(
-                          width: 224*fem,
-                          height: 39*fem,
-                          child: RichText(
-                            textAlign: TextAlign.center,
-                            text: TextSpan(
-                              style: SafeGoogleFont (
-                                'Montserrat',
-                                fontSize: 24*ffem,
-                                fontWeight: FontWeight.w400,
-                                height: 1.625*ffem/fem,
-                                letterSpacing: 10.8*fem,
-                                color: Color(0xffffffff),
-                              ),
-                              children: [
-                                TextSpan(
-                                  text: 'OU',
-                                  style: SafeGoogleFont (
-                                    'Montserrat',
-                                    fontSize: 24*ffem,
-                                    fontWeight: FontWeight.w400,
-                                    height: 1.625*ffem/fem,
-                                    letterSpacing: 10.8*fem,
-                                    color: Color(0xffffffff),
-                                  ),
-                                ),
-                                TextSpan(
-                                  text: ' LUMEN',
-                                  style: SafeGoogleFont (
-                                    'Montserrat',
-                                    fontSize: 24*ffem,
-                                    fontWeight: FontWeight.w400,
-                                    height: 1.625*ffem/fem,
-                                    letterSpacing: 10.8*fem,
-                                    color: Color(0xffffffff),
-                                  ),
-                                ),
-                              ],
+                          width: 113*fem,
+                          height: 21*fem,
+                          child: Container(
+                            decoration: BoxDecoration (
+                              borderRadius: BorderRadius.circular(19*fem),
+                              color: Color(0xff2a0d45),
                             ),
                           ),
                         ),
                       ),
                     ),
                     Positioned(
-                      // oulumenw9N (504:1203)
-                      left: 0*fem,
-                      top: 1*fem,
+                      // cqJ (370:1363)
+                      left: 3.5*fem,
+                      top: 7*fem,
                       child: Align(
                         child: SizedBox(
-                          width: 224*fem,
-                          height: 39*fem,
+                          width: 101*fem,
+                          height: 20*fem,
                           child: Text(
-                            'OU LUMEN',
+                            'ПРОСМОТРЕТЬ',
                             textAlign: TextAlign.center,
                             style: SafeGoogleFont (
-                              'Montserrat',
-                              fontSize: 24*ffem,
+                              'TT Commons',
+                              fontSize: 11*ffem,
                               fontWeight: FontWeight.w400,
-                              height: 1.625*ffem/fem,
-                              letterSpacing: 10.8*fem,
+                              height: 1.8181818182*ffem/fem,
+                              letterSpacing: 1.5*fem,
                               color: Color(0xffffffff),
                             ),
                           ),
@@ -204,124 +96,79 @@ class Scene extends StatelessWidget {
               ),
             ),
             Positioned(
-              // EeG (161:273)
+              // u3i (370:1364)
+              left: 190.5*fem,
+              top: 190*fem,
+              child: Align(
+                child: SizedBox(
+                  width: 55*fem,
+                  height: 20*fem,
+                  child: Text(
+                    'КУПИТЬ',
+                    textAlign: TextAlign.center,
+                    style: SafeGoogleFont (
+                      'TT Commons',
+                      fontSize: 11*ffem,
+                      fontWeight: FontWeight.w400,
+                      height: 1.8181818182*ffem/fem,
+                      letterSpacing: 1.5*fem,
+                      color: Color(0xffffffff),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            Positioned(
+              // rectangle28n7W (370:1365)
               left: 0*fem,
               top: 0*fem,
-              child: Container(
-                width: 390*fem,
-                height: 836*fem,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      // statusbarA28 (161:275)
-                      margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 784*fem),
-                      padding: EdgeInsets.fromLTRB(33*fem, 0*fem, 26.6*fem, 0*fem),
-                      width: double.infinity,
-                      height: 47*fem,
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Container(
-                            // leftsideTmv (I161:275;839:7154)
-                            margin: EdgeInsets.fromLTRB(0*fem, 10*fem, 18*fem, 13*fem),
-                            width: 66*fem,
-                            height: double.infinity,
-                            decoration: BoxDecoration (
-                              borderRadius: BorderRadius.circular(24*fem),
-                            ),
-                            child: Container(
-                              // statusbartime2Te (I161:275;839:7155)
-                              width: double.infinity,
-                              height: double.infinity,
-                              decoration: BoxDecoration (
-                                color: Color(0xff34c759),
-                                borderRadius: BorderRadius.circular(24*fem),
-                              ),
-                              child: Center(
-                                child: Text(
-                                  '9:41',
-                                  textAlign: TextAlign.center,
-                                  style: SafeGoogleFont (
-                                    'Montserrat',
-                                    fontSize: 15*ffem,
-                                    fontWeight: FontWeight.w100,
-                                    height: 1.3333333333*ffem/fem,
-                                    letterSpacing: -0.5*fem,
-                                    fontStyle: FontStyle.italic,
-                                    color: Color(0xffffffff),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                          Container(
-                            // notchJvx (I161:275;1347:15626)
-                            margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 13*fem, 16*fem),
-                            width: 156*fem,
-                            height: 33*fem,
-                            child: Image.asset(
-                              'assets/page-1/images/notch-1KA.png',
-                              width: 156*fem,
-                              height: 33*fem,
-                            ),
-                          ),
-                          Container(
-                            // rightsidecwe (I161:275;839:7156)
-                            margin: EdgeInsets.fromLTRB(0*fem, 19*fem, 0*fem, 15*fem),
-                            height: double.infinity,
-                            child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              children: [
-                                Container(
-                                  // iconmobilesignal9Rn (I161:275;839:7165)
-                                  margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 8*fem, 0*fem),
-                                  width: 18*fem,
-                                  height: 12*fem,
-                                  child: Image.asset(
-                                    'assets/page-1/images/icon-mobile-signal-qHv.png',
-                                    width: 18*fem,
-                                    height: 12*fem,
-                                  ),
-                                ),
-                                Container(
-                                  // wifi4oe (I161:275;839:7161)
-                                  margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 7*fem, 0.17*fem),
-                                  width: 17*fem,
-                                  height: 11.83*fem,
-                                  child: Image.asset(
-                                    'assets/page-1/images/wifi-2ui.png',
-                                    width: 17*fem,
-                                    height: 11.83*fem,
-                                  ),
-                                ),
-                                Container(
-                                  // statusbarbatteryaX6 (I161:275;1015:6374)
-                                  width: 27.4*fem,
-                                  height: 13*fem,
-                                  child: Image.asset(
-                                    'assets/page-1/images/statusbar-battery-Zmv.png',
-                                    width: 27.4*fem,
-                                    height: 13*fem,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
+              child: Align(
+                child: SizedBox(
+                  width: 303*fem,
+                  height: 168*fem,
+                  child: Container(
+                    decoration: BoxDecoration (
+                      borderRadius: BorderRadius.only (
+                        topLeft: Radius.circular(42*fem),
+                        topRight: Radius.circular(42*fem),
+                      ),
+                      gradient: LinearGradient (
+                        begin: Alignment(0.083, 1),
+                        end: Alignment(0.083, -1),
+                        colors: <Color>[Color(0x82000000), Color(0x82000000)],
+                        stops: <double>[0, 0.295],
+                      ),
+                      image: DecorationImage (
+                        fit: BoxFit.cover,
+                        image: AssetImage (
+                          'assets/page-1/images/rectangle-28-bg-HLx.png',
+                        ),
                       ),
                     ),
-                    Container(
-                      // homeindicatorJxt (I161:274;5:3093)
-                      margin: EdgeInsets.fromLTRB(128*fem, 0*fem, 128*fem, 0*fem),
-                      width: double.infinity,
-                      height: 5*fem,
-                      decoration: BoxDecoration (
-                        borderRadius: BorderRadius.circular(100*fem),
-                        color: Color(0xffffffff),
-                      ),
+                  ),
+                ),
+              ),
+            ),
+            Positioned(
+              // premiumQua (370:1366)
+              left: 12*fem,
+              top: 134*fem,
+              child: Align(
+                child: SizedBox(
+                  width: 209*fem,
+                  height: 20*fem,
+                  child: Text(
+                    'ПОДПИСКА PREMIUM',
+                    textAlign: TextAlign.center,
+                    style: SafeGoogleFont (
+                      'Montserrat',
+                      fontSize: 18*ffem,
+                      fontWeight: FontWeight.w700,
+                      height: 1.1111111111*ffem/fem,
+                      letterSpacing: -0.5*fem,
+                      color: Color(0xffffffff),
                     ),
-                  ],
+                  ),
                 ),
               ),
             ),

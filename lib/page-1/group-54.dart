@@ -13,14 +13,14 @@ class Scene extends StatelessWidget {
     return Container(
       width: double.infinity,
       child: Container(
-        // group5441r (491:1558)
+        // group54A9S (491:1558)
         padding: EdgeInsets.fromLTRB(16.5*fem, 16.29*fem, 24.5*fem, 26.19*fem),
         width: double.infinity,
         decoration: BoxDecoration (
           borderRadius: BorderRadius.circular(23*fem),
           image: DecorationImage (
             image: AssetImage (
-              'assets/page-1/images/rectangle-65-bg-m8Q.png',
+              'assets/page-1/images/rectangle-65-bg-eWG.png',
             ),
           ),
         ),
@@ -28,7 +28,7 @@ class Scene extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             Container(
-              // 7F2 (491:1561)
+              // 1Qx (491:1561)
               margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 5.71*fem),
               child: Text(
                 'РАСКЛАД НА СЕГОДНЯ',
@@ -42,7 +42,7 @@ class Scene extends StatelessWidget {
               ),
             ),
             Container(
-              // BVn (491:1560)
+              // sxx (491:1560)
               margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 76.5*fem, 87.23*fem),
               child: Text(
                 'ЧТО СЕГОДНЯ РАССКАЖУТ КАРТЫ?',
@@ -57,12 +57,12 @@ class Scene extends StatelessWidget {
               ),
             ),
             Container(
-              // iconchevronleft55N (491:1562)
+              // iconchevronleftmoS (491:1562)
               margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 3.94*fem, 0*fem),
               width: 11.78*fem,
               height: 21.58*fem,
               child: Image.asset(
-                'assets/page-1/images/icon-chevronleft-T7S.png',
+                'assets/page-1/images/icon-chevronleft-Zw2.png',
                 width: 11.78*fem,
                 height: 21.58*fem,
               ),
