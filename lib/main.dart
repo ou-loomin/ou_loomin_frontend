@@ -1,80 +1,149 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
+import 'package:flutter/services.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:myapp/pages/birthdate.dart';
+import 'package:myapp/templates/player.dart';
+import 'package:myapp/pages/r2.dart';
+import 'package:myapp/pages/survey.dart';
+import 'package:myapp/reserve.dart';
 import 'package:myapp/utils.dart';
-import 'package:myapp/page-1/openscreen.dart';
-import 'package:myapp/page-1/login.dart';
-import 'package:myapp/page-1/agreement.dart';
-// import 'package:myapp/page-1/name.dart';
-// import 'package:myapp/page-1/additionalinfo.dart';
-// import 'package:myapp/page-1/birthdate.dart';
-// import 'package:myapp/page-1/tariff.dart';
-// import 'package:myapp/page-1/firstmeditation.dart';
-// import 'package:myapp/page-1/survey1.dart';
-// import 'package:myapp/page-1/survey3.dart';
-// import 'package:myapp/page-1/survey2.dart';
-// import 'package:myapp/page-1/survey4.dart';
-// import 'package:myapp/page-1/survey5.dart';
-// import 'package:myapp/page-1/survey6.dart';
-// import 'package:myapp/page-1/survey7.dart';
-// import 'package:myapp/page-1/survey8.dart';
-// import 'package:myapp/page-1/mainscreen.dart';
-// import 'package:myapp/page-1/practices.dart';
-// import 'package:myapp/page-1/.dart';
-// import 'package:myapp/page-1/meditations.dart';
-// import 'package:myapp/page-1/-tBe.dart';
-// import 'package:myapp/page-1/meditations2.dart';
-// import 'package:myapp/page-1/asmr.dart';
-// import 'package:myapp/page-1/book1.dart';
-// import 'package:myapp/page-1/book2.dart';
-// import 'package:myapp/page-1/book3.dart';
-// import 'package:myapp/page-1/-m2C.dart';
-// import 'package:myapp/page-1/-UZS.dart';
-// import 'package:myapp/page-1/-Dqn.dart';
-// import 'package:myapp/page-1/meditations3.dart';
-// import 'package:myapp/page-1/melodies.dart';
-// import 'package:myapp/page-1/profile.dart';
-// import 'package:myapp/page-1/group-54.dart';
-// import 'package:myapp/page-1/-1nU.dart';
-// import 'package:myapp/page-1/stories.dart';
-// import 'package:myapp/page-1/news.dart';
-// import 'package:myapp/page-1/news1.dart';
-// import 'package:myapp/page-1/news2.dart';
-// import 'package:myapp/page-1/-Jx4.dart';
-// import 'package:myapp/page-1/-KjJ.dart';
-// import 'package:myapp/page-1/event.dart';
-// import 'package:myapp/page-1/ou-loomin.dart';
-// import 'package:myapp/page-1/meditationmusic.dart';
-// import 'package:myapp/page-1/-xgk.dart';
-// import 'package:myapp/page-1/player-reworked.dart';
-// import 'package:myapp/page-1/practaroalign.dart';
-// import 'package:myapp/page-1/practaro.dart';
-// import 'package:myapp/page-1/image-19.dart';
-// import 'package:myapp/page-1/image-20.dart';
-// import 'package:myapp/page-1/image-21.dart';
-// import 'package:myapp/page-1/practaro2.dart';
-// import 'package:myapp/page-1/pracrunes.dart';
-// import 'package:myapp/page-1/practarodaymap.dart';
-// import 'package:myapp/page-1/-Hc8.dart';
+import 'package:myapp/pages/openscreen.dart';
+import 'package:myapp/pages/login.dart';
+import 'package:myapp/pages/agreement.dart';
+import 'package:myapp/pages/name.dart';
+// import 'package:myapp/pages/additionalinfo.dart';
+// import 'package:myapp/pages/birthdate.dart';
+// import 'package:myapp/pages/tariff.dart';
+// import 'package:myapp/pages/firstmeditation.dart';
+// import 'package:myapp/pages/survey.dart';
+// import 'package:myapp/pages/survey3.dart';
+// import 'package:myapp/pages/survey2.dart';
+// import 'package:myapp/pages/survey4.dart';
+// import 'package:myapp/pages/survey5.dart';
+// import 'package:myapp/pages/survey6.dart';
+// import 'package:myapp/pages/survey7.dart';
+// import 'package:myapp/pages/survey8.dart';
+import 'package:myapp/pages/mainscreen.dart';
+// import 'package:myapp/pages/practices.dart';
+// import 'package:myapp/pages/.dart';
+// import 'package:myapp/pages/meditations.dart';
+// import 'package:myapp/pages/-tBe.dart';
+// import 'package:myapp/pages/meditations2.dart';
+// import 'package:myapp/pages/asmr.dart';
+// import 'package:myapp/pages/book1.dart';
+// import 'package:myapp/pages/book2.dart';
+// import 'package:myapp/pages/book3.dart';
+// import 'package:myapp/pages/-m2C.dart';
+// import 'package:myapp/pages/-UZS.dart';
+// import 'package:myapp/pages/-Dqn.dart';
+// import 'package:myapp/pages/meditations3.dart';
+// import 'package:myapp/pages/melodies.dart';
+// import 'package:myapp/pages/profile.dart';
+// import 'package:myapp/pages/group-54.dart';
+// import 'package:myapp/pages/-1nU.dart';
+// import 'package:myapp/pages/stories.dart';
+// import 'package:myapp/pages/news.dart';
+// import 'package:myapp/pages/news1.dart';
+// import 'package:myapp/pages/news2.dart';
+// import 'package:myapp/pages/-Jx4.dart';
+// import 'package:myapp/pages/-KjJ.dart';
+// import 'package:myapp/pages/event.dart';
+// import 'package:myapp/pages/ou-loomin.dart';
+// import 'package:myapp/pages/meditationmusic.dart';
+// import 'package:myapp/pages/-xgk.dart';
+// import 'package:myapp/pages/player-reworked.dart';
+// import 'package:myapp/pages/practaroalign.dart';
+// import 'package:myapp/pages/practaro.dart';
+// import 'package:myapp/pages/image-19.dart';
+// import 'package:myapp/pages/image-20.dart';
+// import 'package:myapp/pages/image-21.dart';
+// import 'package:myapp/pages/practaro2.dart';
+// import 'package:myapp/pages/pracrunes.dart';
+// import 'package:myapp/pages/practarodaymap.dart';
+// import 'package:myapp/pages/-Hc8.dart';
 
-void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
+import 'package:myapp/globals.dart';
+import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import 'automats.dart';
+
+void main() {
+	SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+		statusBarColor: Colors.transparent,
+	));
+	runApp(MyApp());
+}
+
+class MyApp extends StatefulWidget {
+	@override
+	State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+	bool? isLoggedIn;
+
+	Future<void> checkLoggedIn() async {
+		final SharedPreferences prefs = await SharedPreferences.getInstance();
+		bool? _isLoggedIn = prefs.getBool('isLogin');
+		print(_isLoggedIn);
+
+		setState(() {
+			isLoggedIn = _isLoggedIn;
+		});
+	}
+
+	@override
+	void initState() {
+		super.initState();
+		Future.microtask(() async => await checkLoggedIn());
+	}
+
 	@override
 	Widget build(BuildContext context) {
-	return MaterialApp(
-		title: 'OU LOOMIN',
-		debugShowCheckedModeBanner: false,
-		scrollBehavior: MyCustomScrollBehavior(),
-		theme: ThemeData(
-		primarySwatch: Colors.blue,
+		return MaterialApp(
+			title: 'OU LOOMIN',
+			debugShowCheckedModeBanner: false,
+			scrollBehavior: MyCustomScrollBehavior(),
+			theme: ThemeData(
+				primarySwatch: Colors.indigo,
+			),
+			home: WillPopScope(
+		onWillPop: () async {
+		return false; // Запрещаем возврат на предыдущий экран
+		},
+		child: Scaffold(
+				backgroundColor: Colors.transparent,
+				body: NotificationListener<OverscrollIndicatorNotification>(
+					onNotification: (overScroll){
+						overScroll.disallowIndicator();
+						return true;
+					},
+				child: ScrollSliderPage(body: SingleChildScrollView(child:
+					// Main()
+					// Name()
+					Birthdate()
+					// OpenScreen()
+					// Agreement()
+					// Survey()
+					// MyPageView()
+				// isLoggedIn != null?
+				// isLoggedIn!
+				// 		? Main()
+				// 		: Login()
+				// 		: OpenScreen()
+				),
+			),
 		),
-		home: Scaffold(
-		body: SingleChildScrollView(
-			child: Login(),
+			bottomNavigationBar: isMusicPlaying ? ChangeNotifierProvider(
+					create: (context) => MusicService(),
+					child: MusicService().isPlaying ? MusicPlayerDockBar() : null) : null,
 		),
-		),
-	);
+			),
+		);
 	}
 }
+
