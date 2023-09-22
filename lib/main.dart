@@ -122,19 +122,21 @@ class _MyAppState extends State<MyApp> {
 						overScroll.disallowIndicator();
 						return true;
 					},
-				child: ScrollSliderPage(body: SingleChildScrollView(child:
+				child: ScrollSliderPage(
+					body: SingleChildScrollView(
+							child:
 					// Main()
 					// Name()
-					Birthdate()
+					// Birthdate()
 					// OpenScreen()
 					// Agreement()
 					// Survey()
 					// MyPageView()
-				// isLoggedIn != null?
-				// isLoggedIn!
-				// 		? Main()
-				// 		: Login()
-				// 		: OpenScreen()
+							isLoggedIn != null?
+							isLoggedIn!
+									? Main()
+									: Login()
+									: OpenScreen()
 				),
 			),
 		),

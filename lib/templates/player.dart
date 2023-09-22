@@ -1,4 +1,4 @@
-import 'package:audioplayers/audioplayers.dart';
+// import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/services.dart';
@@ -11,11 +11,11 @@ import '../automats.dart';
 class MusicPlayerDockBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final audioPlayer = AudioPlayer();
-
-    playMusic() async {
-      await audioPlayer.play(UrlSource('https://jazz-wr06.ice.infomaniak.ch/jazz-wr06-128.mp3'));
-    }
+    // final audioPlayer = AudioPlayer();
+    //
+    // playMusic() async {
+    //   await audioPlayer.play(UrlSource('https://jazz-wr06.ice.infomaniak.ch/jazz-wr06-128.mp3'));
+    // }
     final musicService = Provider.of<MusicService>(context);
 
     return Column(

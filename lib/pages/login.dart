@@ -279,7 +279,7 @@ class Login extends StatelessWidget {
                         width: 13 * fem,
                         height: 13 * fem,
                         child: Image.asset(
-                          'assets/page-1/images/arrowforward-XEt.png',
+                          'assets/page-1/images/arrowforward_white.png',
                           width: 13 * fem,
                           height: 13 * fem,
                         ),
