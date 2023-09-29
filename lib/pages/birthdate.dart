@@ -1,16 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
+import 'package:flutter/cupertino.dart';
 import 'dart:ui';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:myapp/pages/birthdate.dart';
-import 'package:myapp/utils.dart';
 
 import '../automats.dart';
 import '../globals.dart';
 import 'mainscreen.dart';
-
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 
 class Birthdate extends StatelessWidget {
   final TextEditingController nameController = TextEditingController();
@@ -201,7 +196,7 @@ class Birthdate extends StatelessWidget {
                       width: 32 * fem,
                       height: 32 * fem,
                       child: Image.asset(
-                        'assets/page-1/images/arrowforward-HFS.png',
+                        'assets/page-1/images/arrowforward_white.png',
                         width: 32 * fem,
                         height: 32 * fem,
                       ),

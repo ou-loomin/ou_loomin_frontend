@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:myapp/pages/birthdate.dart';
 import 'package:myapp/utils.dart';
 
 import '../automats.dart';
@@ -24,268 +25,241 @@ class _AgreementState extends State<Agreement> {
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
 
-    return Container(
+    return Scaffold(body: Container(
       width: double.infinity,
       child: Container(
         // agreementa8C (503:1319)
         width: double.infinity,
         height: height*fem,
         decoration: BoxDecoration (
-          color: Color(0xff000000),
-          borderRadius: BorderRadius.circular(16*fem),
-          boxShadow: [
-            BoxShadow(
-              color: Color(0x3f000000),
-              offset: Offset(0*fem, 4*fem),
-              blurRadius: 2*fem,
-            ),
-          ],
+    color: Color(0xff000000),
+    borderRadius: BorderRadius.circular(16*fem),
+    boxShadow: [
+      BoxShadow(
+        color: Color(0x3f000000),
+        offset: Offset(0*fem, 4*fem),
+        blurRadius: 2*fem,
+      ),
+    ],
         ),
         child: Stack(
-          children: [
-            Positioned(
-              bottom: 35*fem,
-              left: baseWidth / 2,
-              child: BlinkinBackground(
-                key: backKey1,
-                color: Color(0xFFFFFFFF),
-                timing: 9,
-                opacity: 1.0,
-              ),
+    children: [
+      Positioned(
+        bottom: 35*fem,
+        left: baseWidth / 2,
+        child: BlinkinBackground(
+          key: backKey1,
+          color: Color(0xFFFFFFFF),
+          timing: 9,
+          opacity: 1.0,
+        ),
+      ),
+      Positioned(
+        bottom: 0,
+        left: baseWidth,
+        child: BlinkinBackground(
+          key: backKey2,
+          color: Color(0xFF59178C),
+          timing: 7,
+          opacity: 1.0,
+        ),
+      ),
+      Positioned(
+        bottom: 0,
+        left: 0,
+        child: BlinkinBackground(
+          key: backKey3,
+          color: Color(0xFFA26AAB),
+          timing: 5,
+          opacity: 1.0,
+        ),
+      ),
+      Positioned(
+        // wsr (503:1368)
+        left: 165*fem,
+        top: 693*fem,
+        child: TextButton(
+          onPressed: checkboxValue! ? () {
+            Navigator.of(context).push(fadedTransition(Birthdate()));
+          } : null,
+          style: TextButton.styleFrom (
+            padding: EdgeInsets.zero,
+          ),
+          child: AnimatedContainer(
+            duration: Duration(milliseconds: 800), // продолжительность анимации
+            curve: Curves.easeOut,
+            padding: EdgeInsets.fromLTRB(14*fem, 15*fem, 14*fem, 13*fem),
+            width: 60*fem,
+            height: 60*fem,
+            decoration: BoxDecoration (
+              color: Color(0xff000000).withOpacity(checkboxValue == true ? 1.0 : 0.3),
+              borderRadius: BorderRadius.circular(30*fem),
             ),
-            Positioned(
-              bottom: 0,
-              left: baseWidth,
-              child: BlinkinBackground(
-                key: backKey2,
-                color: Color(0xFF59178C),
-                timing: 7,
-                opacity: 1.0,
-              ),
-            ),
-            Positioned(
-              bottom: 0,
-              left: 0,
-              child: BlinkinBackground(
-                key: backKey3,
-                color: Color(0xFFA26AAB),
-                timing: 5,
-                opacity: 1.0,
-              ),
-            ),
-            Positioned(
-              // wsr (503:1368)
-              left: 165*fem,
-              top: 693*fem,
-              child: TextButton(
-                onPressed: checkboxValue! ? () {
-                  Navigator.of(context).push(fadedTransition(Main()));
-                } : null,
-                style: TextButton.styleFrom (
-                  padding: EdgeInsets.zero,
-                ),
-                child: AnimatedContainer(
-                  duration: Duration(milliseconds: 800), // продолжительность анимации
-                  curve: Curves.easeOut,
-                  padding: EdgeInsets.fromLTRB(14*fem, 15*fem, 14*fem, 13*fem),
-                  width: 60*fem,
-                  height: 60*fem,
-                  decoration: BoxDecoration (
-                    color: Color(0xff000000).withOpacity(checkboxValue == true ? 1.0 : 0.3),
-                    borderRadius: BorderRadius.circular(30*fem),
-                  ),
-                  child: Center(
-                    // arrowforward28c (503:1370)
-                    child: SizedBox(
-                      width: 32*fem,
-                      height: 32*fem,
-                      child: Opacity(
-                        opacity: checkboxValue == true ? 1.0 : 0.3,
-                        child: Image.asset(
-                          'assets/page-1/images/arrowforward.png',
-                          width: 32*fem,
-                          height: 32*fem,
-                        ),
-                      ),
-                    ),
+            child: Center(
+              // arrowforward28c (503:1370)
+              child: SizedBox(
+                width: 32*fem,
+                height: 32*fem,
+                child: Opacity(
+                  opacity: checkboxValue == true ? 1.0 : 0.3,
+                  child: Image.asset(
+                    'assets/page-1/images/arrowforward_white.png',
+                    width: 32*fem,
+                    height: 32*fem,
                   ),
                 ),
               ),
             ),
-            Positioned(
-              // joi (503:1378)
-              left: 39*fem,
-              top: 126*fem,
-              child: Container(
-                padding: EdgeInsets.fromLTRB(29.5*fem, 17.11*fem, 18*fem, 24*fem),
-                width: 311*fem,
-                height: 537*fem,
-                decoration: BoxDecoration (
-                  color: Color(0x30000000),
-                  borderRadius: BorderRadius.circular(32*fem),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Color(0x30000000),
-                      offset: Offset(0*fem, 4*fem),
-                      blurRadius: 3*fem,
-                    ),
-                  ],
+          ),
+        ),
+      ),
+      Positioned(
+        // joi (503:1378)
+        left: 39*fem,
+        top: 126*fem,
+        child: Container(
+          padding: EdgeInsets.fromLTRB(29.5*fem, 17.11*fem, 18*fem, 24*fem),
+          width: 311*fem,
+          height: 537*fem,
+          decoration: BoxDecoration (
+            color: Color(0x30000000),
+            borderRadius: BorderRadius.circular(32*fem),
+            boxShadow: [
+              BoxShadow(
+                color: Color(0x30000000),
+                offset: Offset(0*fem, 4*fem),
+                blurRadius: 3*fem,
+              ),
+            ],
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(
+                // cMi (503:1374)
+                margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 15.5*fem, 2.9*fem),
+                constraints: BoxConstraints (
+                  maxWidth: 244*fem,
                 ),
-                child: Column(
+                child: Text(
+                  'ПОЛИТИКА ЗАЩИТЫ И ОБРАБОТКИ \nПЕРСОНАЛЬНЫХ ДАННЫХ ',
+                  textAlign: TextAlign.center,
+                  style: SafeGoogleFont (
+                    'Montserrat',
+                    fontSize: 13*ffem,
+                    fontWeight: FontWeight.w700,
+                    height: 1.0769230769*ffem/fem,
+                    letterSpacing: -0.5*fem,
+                    color: Color(0xffffffff),
+                  ),
+                ),
+              ),
+              Container(
+                // autogroupfumjfKz (5z1TpNNCBqB2KpdiVzfUmJ)
+                width: double.infinity,
+                height: 466*fem,
+                child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Container(
-                      // cMi (503:1374)
-                      margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 15.5*fem, 2.9*fem),
-                      constraints: BoxConstraints (
-                        maxWidth: 244*fem,
-                      ),
-                      child: Text(
-                        'ПОЛИТИКА ЗАЩИТЫ И ОБРАБОТКИ \nПЕРСОНАЛЬНЫХ ДАННЫХ ',
-                        textAlign: TextAlign.center,
-                        style: SafeGoogleFont (
-                          'Montserrat',
-                          fontSize: 13*ffem,
-                          fontWeight: FontWeight.w700,
-                          height: 1.0769230769*ffem/fem,
-                          letterSpacing: -0.5*fem,
-                          color: Color(0xffffffff),
-                        ),
-                      ),
-                    ),
-                    Container(
-                      // autogroupfumjfKz (5z1TpNNCBqB2KpdiVzfUmJ)
-                      width: double.infinity,
-                      height: 466*fem,
-                      child: Row(
+                      // autogroupo1wlCKv (5z1Tvx1Zc5mxCSJzRyo1WL)
+                      margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 11.5*fem, 0*fem),
+                      width: 248*fem,
+                      height: double.infinity,
+                      child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Container(
-                            // autogroupo1wlCKv (5z1Tvx1Zc5mxCSJzRyo1WL)
-                            margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 11.5*fem, 0*fem),
-                            width: 248*fem,
-                            height: double.infinity,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Container(
-                                  // iJG (503:1375)
-                                  margin: EdgeInsets.fromLTRB(0*fem, 10*fem, 0*fem, 0*fem),
-                                  constraints: BoxConstraints (
-                                    maxWidth: 248*fem,
-                                  ),
-                                  child: AgreementWidget(
-                                    onScrollEndReached: (value) {
-                                      setState(() {
-                                        isCheckboxActive = value;
-                                      });
-                                    },
-                                  )
-                                  ,
-                                ),
-                                ListTile(
-                                  leading: Checkbox(
-                                    checkColor: Colors.black,
-                                    activeColor: Colors.white,
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(5.0),
-                                    ),
-                                    value: checkboxValue,
-                                    onChanged: isCheckboxActive ? (newValue) {
-                                      setState(() {
-                                        checkboxValue = newValue;
-                                      });
-                                    }
-                                        : null,
-                                  ),
-                                  title: Text(
-                                    "Я согласен(а)",
-                                    textAlign: TextAlign.center,
-                                    style: SafeGoogleFont (
-                                      'Montserrat',
-                                      fontSize: 12*ffem,
-                                      fontWeight: FontWeight.w700,
-                                      height: 0.5416666667*ffem/fem,
-                                      letterSpacing: -0.5*fem,
-                                      color: Color(0xffffffff),
-                                    ),
-                                  ),
-                                ),
-                                // Container(
-                                //   // autogroup1kd21ic (5z1U2wqa3856vANUuA1kD2)
-                                //   margin: EdgeInsets.fromLTRB(70.5*fem, 0*fem, 73*fem, 0*fem),
-                                //   child: TextButton(
-                                //     onPressed: () {},
-                                //     style: TextButton.styleFrom (
-                                //       padding: EdgeInsets.zero,
-                                //     ),
-                                //     child: Container(
-                                //       width: double.infinity,
-                                //       child: Row(
-                                //         crossAxisAlignment: CrossAxisAlignment.center,
-                                //         children: [
-                                //           Container(
-                                //             // rectangle111vqa (503:1379)
-                                //             margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 7.5*fem, 0*fem),
-                                //             width: 15*fem,
-                                //             height: 15*fem,
-                                //             decoration: BoxDecoration (
-                                //               borderRadius: BorderRadius.circular(5*fem),
-                                //               border: Border.all(color: Color(0x4cffffff)),
-                                //             ),
-                                //           ),
-                                //           TextButton(
-                                //             // Sov (503:1380)
-                                //             onPressed: () {},
-                                //             style: TextButton.styleFrom (
-                                //               padding: EdgeInsets.zero,
-                                //             ),
-                                //             child: Container(
-                                //               constraints: BoxConstraints (
-                                //                 maxWidth: 82*fem,
-                                //               ),
-                                //               child: Text(
-                                //                 'Я согласен/на',
-                                //                 textAlign: TextAlign.center,
-                                //                 style: SafeGoogleFont (
-                                //                   'Montserrat',
-                                //                   fontSize: 12*ffem,
-                                //                   fontWeight: FontWeight.w700,
-                                //                   height: 0.5416666667*ffem/fem,
-                                //                   letterSpacing: -0.5*fem,
-                                //                   color: Color(0xffffffff),
-                                //                 ),
-                                //               ),
-                                //             ),
-                                //           ),
-                                //         ],
-                                //       ),
-                                //     ),
-                                //   ),
-                                // ),
-                              ],
+                            // iJG (503:1375)
+                            margin: EdgeInsets.fromLTRB(0*fem, 10*fem, 0*fem, 0*fem),
+                            constraints: BoxConstraints (
+                              maxWidth: 248*fem,
+                            ),
+                            child: AgreementWidget(
+                              onScrollEndReached: (value) {
+                                setState(() {
+                                  isCheckboxActive = value;
+                                });
+                              },
+                            )
+                            ,
+                          ),
+                          ListTile(
+                            leading: Checkbox(
+                              checkColor: Colors.black,
+                              activeColor: Colors.white,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(5.0),
+                              ),
+                              value: checkboxValue,
+                              onChanged: isCheckboxActive ? (newValue) {
+                                setState(() {
+                                  checkboxValue = newValue;
+                                });
+                              }
+                                  : null,
+                            ),
+                            title: Text(
+                              "Я согласен(а)",
+                              textAlign: TextAlign.center,
+                              style: SafeGoogleFont (
+                                'Montserrat',
+                                fontSize: 12*ffem,
+                                fontWeight: FontWeight.w700,
+                                height: 0.5416666667*ffem/fem,
+                                letterSpacing: -0.5*fem,
+                                color: Color(0xffffffff),
+                              ),
                             ),
                           ),
                           // Container(
-                          //   // autogroupxgbn8we (5z1UAmwriFuGgyE9gJXGBN)
-                          //   margin: EdgeInsets.fromLTRB(0*fem, 6.41*fem, 0*fem, 9.14*fem),
-                          //   width: 4*fem,
-                          //   height: double.infinity,
-                          //   decoration: BoxDecoration (
-                          //     color: Color(0x23d9d9d9),
-                          //     borderRadius: BorderRadius.circular(21*fem),
-                          //   ),
-                          //   child: Align(
-                          //     // rectangle109EUt (503:1376)
-                          //     alignment: Alignment.topCenter,
-                          //     child: SizedBox(
+                          //   // autogroup1kd21ic (5z1U2wqa3856vANUuA1kD2)
+                          //   margin: EdgeInsets.fromLTRB(70.5*fem, 0*fem, 73*fem, 0*fem),
+                          //   child: TextButton(
+                          //     onPressed: () {},
+                          //     style: TextButton.styleFrom (
+                          //       padding: EdgeInsets.zero,
+                          //     ),
+                          //     child: Container(
                           //       width: double.infinity,
-                          //       height: 40.63*fem,
-                          //       child: Container(
-                          //         decoration: BoxDecoration (
-                          //           borderRadius: BorderRadius.circular(21*fem),
-                          //           color: Color(0xffd9d9d9),
-                          //         ),
+                          //       child: Row(
+                          //         crossAxisAlignment: CrossAxisAlignment.center,
+                          //         children: [
+                          //           Container(
+                          //             // rectangle111vqa (503:1379)
+                          //             margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 7.5*fem, 0*fem),
+                          //             width: 15*fem,
+                          //             height: 15*fem,
+                          //             decoration: BoxDecoration (
+                          //               borderRadius: BorderRadius.circular(5*fem),
+                          //               border: Border.all(color: Color(0x4cffffff)),
+                          //             ),
+                          //           ),
+                          //           TextButton(
+                          //             // Sov (503:1380)
+                          //             onPressed: () {},
+                          //             style: TextButton.styleFrom (
+                          //               padding: EdgeInsets.zero,
+                          //             ),
+                          //             child: Container(
+                          //               constraints: BoxConstraints (
+                          //                 maxWidth: 82*fem,
+                          //               ),
+                          //               child: Text(
+                          //                 'Я согласен/на',
+                          //                 textAlign: TextAlign.center,
+                          //                 style: SafeGoogleFont (
+                          //                   'Montserrat',
+                          //                   fontSize: 12*ffem,
+                          //                   fontWeight: FontWeight.w700,
+                          //                   height: 0.5416666667*ffem/fem,
+                          //                   letterSpacing: -0.5*fem,
+                          //                   color: Color(0xffffffff),
+                          //                 ),
+                          //               ),
+                          //             ),
+                          //           ),
+                          //         ],
                           //       ),
                           //     ),
                           //   ),
@@ -293,14 +267,42 @@ class _AgreementState extends State<Agreement> {
                         ],
                       ),
                     ),
+                    // Container(
+                    //   // autogroupxgbn8we (5z1UAmwriFuGgyE9gJXGBN)
+                    //   margin: EdgeInsets.fromLTRB(0*fem, 6.41*fem, 0*fem, 9.14*fem),
+                    //   width: 4*fem,
+                    //   height: double.infinity,
+                    //   decoration: BoxDecoration (
+                    //     color: Color(0x23d9d9d9),
+                    //     borderRadius: BorderRadius.circular(21*fem),
+                    //   ),
+                    //   child: Align(
+                    //     // rectangle109EUt (503:1376)
+                    //     alignment: Alignment.topCenter,
+                    //     child: SizedBox(
+                    //       width: double.infinity,
+                    //       height: 40.63*fem,
+                    //       child: Container(
+                    //         decoration: BoxDecoration (
+                    //           borderRadius: BorderRadius.circular(21*fem),
+                    //           color: Color(0xffd9d9d9),
+                    //         ),
+                    //       ),
+                    //     ),
+                    //   ),
+                    // ),
                   ],
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
-          );
+    ],
+        ),
+      ),
+    ),
+    );
   }
 }
 

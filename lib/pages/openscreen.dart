@@ -89,31 +89,6 @@ class OpenScreen extends StatelessWidget {
               ),
             ),
             Positioned(
-              // 9Lg (162:476)
-              left: 0*fem,
-              top: 0*fem,
-              child: Container(
-                width: 861*fem,
-                height: 1220*fem,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      // group3F8p (179:615)
-                      margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 12*fem, 254*fem),
-                      width: 479*fem,
-                      height: 257*fem,
-                      child: Image.asset(
-                        'assets/page-1/images/group-3.png',
-                        width: 479*fem,
-                        height: 257*fem,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            Positioned(
               // qsi (162:485)
               left: 165*fem,
               top: 704*fem,
