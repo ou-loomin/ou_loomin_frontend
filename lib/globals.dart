@@ -20,9 +20,17 @@ import 'package:shared_preferences/shared_preferences.dart';
 // var blinkinBackgroundState1 = automats.BlinkinBackground(Color(0xFFFFFFFF), 9, 1.0);
 // var blinkinBackgroundState2 = automats.BlinkinBackground(Color(0xFFA26AAB), 5, 1.0);
 
-final GlobalKey<BlinkBackState> backKey1 = GlobalKey<BlinkBackState>();
-final GlobalKey<BlinkBackState> backKey2 = GlobalKey<BlinkBackState>();
-final GlobalKey<BlinkBackState> backKey3 = GlobalKey<BlinkBackState>();
+class AnimationData {
+  AnimationController controller;
+
+  AnimationData({required int durationInSeconds, required TickerProviderSingleton vsync})
+      : controller = AnimationController(
+    vsync: vsync,
+    duration: Duration(seconds: durationInSeconds),
+  ) {
+    controller.repeat(reverse: true);
+  }
+}
 
 bool isMusicPlaying = false;
 

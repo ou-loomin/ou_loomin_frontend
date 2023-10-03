@@ -36,10 +36,10 @@ class Survey extends StatelessWidget {
               bottom: 0,
               left: baseWidth,
               child: BlinkinBackground(
-                key: backKey2,
                 color: Color(0xFF59178C),
                 timing: 7,
                 opacity: 1.0,
+                  animationIndex: 2
               ),
             ),
             Positioned(

@@ -80,30 +80,30 @@ class Login extends StatelessWidget {
               bottom: 35*fem,
               left: baseWidth / 2,
               child: BlinkinBackground(
-                key: backKey1,
                 color: Color(0xFFFFFFFF),
                 timing: 9,
                 opacity: 1.0,
+                  animationIndex: 0
               ),
             ),
             Positioned(
               bottom: 0,
               left: baseWidth,
               child: BlinkinBackground(
-                key: backKey2,
                 color: Color(0xFF59178C),
                 timing: 7,
                 opacity: 1.0,
+                  animationIndex: 1
               ),
             ),
             Positioned(
               bottom: 0,
               left: 0,
               child: BlinkinBackground(
-                key: backKey3,
                 color: Color(0xFFA26AAB),
                 timing: 5,
                 opacity: 1.0,
+                  animationIndex: 2
               ),
             ),
             Positioned(

@@ -21,11 +21,22 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'automats.dart';
 
+final List<AnimationData> animations = [
+	AnimationData(vsync: TickerProviderSingleton(), durationInSeconds: 9),
+	AnimationData(vsync: TickerProviderSingleton(), durationInSeconds: 7),
+	AnimationData(vsync: TickerProviderSingleton(), durationInSeconds: 5),
+];
+
 void main() {
 	SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
 		statusBarColor: Colors.transparent,
 	));
-	runApp(MyApp());
+	runApp(
+		ChangeNotifierProvider(
+			create: (context) => BlinkinProvider(animations),
+			child: MyApp(),
+		),
+	);
 }
 
 class MyApp extends StatefulWidget {
@@ -78,12 +89,12 @@ class _MyAppState extends State<MyApp> {
 					// Main()
 					// Name()
 					// Birthdate()
-					// OpenScreen()
+					OpenScreen()
 					// Additional()
 					// Agreement()
 					// Survey()
 					// Login()
-						Tariff()
+					// Tariff()
 					// MyPageView()
 					// 		isLoggedIn != null?
 					// 		isLoggedIn!
