@@ -2,26 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:myapp/utils.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'dart:developer';
 
 
-Future<void> loginResponce(var login, var password) async {
+Future<List<Map<String, String>>> tarifResponce() async {
   try {
-    var response = await http.get(Uri.parse('https://dev.loomin.hm4nx.ru/api/v1/tariffs?skip=0&limit=10000'));
-    print("Response status: ${response.statusCode}");
-    print("Response body: ${response.body}");
-    if (response.statusCode != 200) {
-      
-    } else {
-
-    }
+    var response = await http.get(Uri.parse('https://dev.loomin.hm4nx.ru/api/v1/tariffs?skip=0&limit=100'));
+    debugPrint("hello");
+    return json.decode(utf8.decode(response.bodyBytes));
   } catch (error) {
-    print(error);
+    return [{}];
   }
 }
 
 
 class CardText extends StatelessWidget {
-  late final Map<String, String> text;
+  late final Map<String, dynamic> text;
 
   CardText({super.key, required this.text});
 
@@ -42,7 +38,7 @@ class CardText extends StatelessWidget {
             // plusBNt (251:748)
             margin: EdgeInsets.fromLTRB(13*fem, 0*fem, 0*fem, 9*fem),
             child: Text(
-              text['title']!,
+              text['name']!,
               style: SafeGoogleFont (
                 'Montserrat',
                 fontSize: 25*ffem,
@@ -69,7 +65,7 @@ class CardText extends StatelessWidget {
                       width: 300*fem,
                       height: 20*fem,
                       child: Text(
-                        text['price']!,
+                        text['price'].toInt().toString()!,
                         style: SafeGoogleFont (
                           'Montserrat',
                           fontSize: 57*ffem,
@@ -91,7 +87,7 @@ class CardText extends StatelessWidget {
                       width: 300*fem,
                       height: 40*fem,
                       child: Text(
-                        '${text['price']!}₽',
+                        '${text['price'].toInt()!}₽',
                         style: SafeGoogleFont (
                           'Montserrat',
                           fontSize: 35*ffem,
@@ -203,30 +199,58 @@ class GradientCardsList extends StatelessWidget {
   static const desc4 = 'Тут будет все\n\n\n\n';
   static const desc5 = 'Нихуя не будет тут\n\n\n\n';
   final List<Map<String, String>> texts = [
-    {'title': 'BASIC', 'price':'490', 'description':desc1},
-    {'title': 'PLUS', 'price':'790', 'description':desc2},
-    {'title': 'PREMIUM', 'price':'1490', 'description':desc3},
-    {'title': 'FULL TIME', 'price':'37 980', 'description':desc4},
-    {'title': 'GUEST', 'price':'0', 'description':desc5}
+    {'name': 'BASIC', 'price':'490', 'description':desc1},
+    {'name': 'PLUS', 'price':'790', 'description':desc2},
+    {'name': 'PREMIUM', 'price':'1490', 'description':desc3},
+    {'name': 'FULL TIME', 'price':'37 980', 'description':desc4},
+    {'name': 'GUEST', 'price':'0', 'description':desc5}
   ];
+
+
+  Future<List<Map<String, dynamic>>> tarifResponce() async {
+    try {
+      var response = await http.get(Uri.parse('https://dev.loomin.hm4nx.ru/api/v1/tariffs?skip=0&limit=100'));
+      return List<Map<String, dynamic>>.from(json.decode(response.body));
+    } catch (error) {
+      print(error);
+      return []; // возвращает пустой список в случае ошибки
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     double baseWidth = MediaQuery.of(context).size.width;
     double fem = MediaQuery.of(context).size.width / baseWidth;
 
-    return SizedBox(
-      height: 320 * fem,
-      child: PageView.builder(
-        itemCount: gradients.length,
-        controller: PageController(viewportFraction: 0.8, initialPage: 0),
-        itemBuilder: (context, index) {
-          return Padding(
-            padding: EdgeInsets.symmetric(horizontal: 15 * fem),
-            child: GradientCard(gradient: gradients[index], son: CardText(text: texts[index]),),
+    return FutureBuilder<List<Map<String, dynamic>>>(
+      future: tarifResponce(),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.done) {
+          if (snapshot.hasError || snapshot.data == null) {
+            return Center(child: Text('Error loading data'));
+          }
+
+          var response = snapshot.data!;
+          return SizedBox(
+            height: 320 * fem,
+            child: PageView.builder(
+              itemCount: gradients.length,
+              controller: PageController(viewportFraction: 0.8, initialPage: 0),
+              itemBuilder: (context, index) {
+                return Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 15 * fem),
+                  child: GradientCard(
+                    gradient: gradients[index],
+                    son: CardText(text: response[index]), // пример использования данных из response
+                  ),
+                );
+              },
+            ),
           );
-        },
-      ),
+        } else {
+          return Center(child: CircularProgressIndicator()); // показываем индикатор загрузки, пока данные загружаются
+        }
+      },
     );
   }
 }

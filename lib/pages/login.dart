@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:myapp/utils.dart';
 import 'package:myapp/pages/agreement.dart';
