@@ -4,26 +4,48 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:myapp/utils.dart';
+import 'package:provider/provider.dart';
+
+import 'globals.dart';
 
 
 // -------------------------- BLINKING BACKGROUD NOTIFER ------------------------
 
-class AnimationStateNotifier extends ValueNotifier<AnimationState> {
-  AnimationStateNotifier() : super(AnimationState());
-}
+import 'package:flutter/scheduler.dart';
 
-class AnimationState {
-  bool isAnimating = false;
-  double value = 0.0;
+class TickerProviderSingleton extends TickerProvider {
+  static final TickerProviderSingleton _singleton = TickerProviderSingleton._internal();
 
-  void toggleAnimation() {
-    isAnimating = !isAnimating;
+  factory TickerProviderSingleton() {
+    return _singleton;
   }
 
-  void updateValue(double newValue) {
-    value = newValue;
+  TickerProviderSingleton._internal();
+
+  @override
+  Ticker createTicker(TickerCallback onTick) {
+    return Ticker(onTick);
   }
 }
+
+
+class BlinkinProvider with ChangeNotifier {
+  final List<AnimationData> animations;
+
+  BlinkinProvider(this.animations);
+
+  AnimationController getController(int index) => animations[index].controller;
+
+  double getAnimationValue(int index) {
+    return Tween(begin: 200.0, end: 300.0).transform(getController(index).value);
+  }
+
+  void updateAnimationValue(int index) {
+    notifyListeners();
+  }
+}
+
+
 
 // -------------------------- BACKGROUND STATE --------------------------
 
@@ -31,43 +53,38 @@ class BlinkinBackground extends StatefulWidget {
   final Color color;
   final int timing;
   final double opacity;
+  final int animationIndex; // <---- Добавьте это
 
   BlinkinBackground({
     required this.color,
     required this.timing,
     required this.opacity,
-    Key? key,
-  }) : super(key: key);
+    required this.animationIndex, // <---- И это
+  });
 
   @override
-  BlinkBackState createState() => BlinkBackState();
+  BlinkBackState createState() => BlinkBackState(animationIndex);
 }
 
-class BlinkBackState extends State<BlinkinBackground>
-    with SingleTickerProviderStateMixin {
-  late AnimationController _animationController;
-  late Animation _animation;
+class BlinkBackState extends State<BlinkinBackground> {
+  BlinkinProvider? _provider;
+  int animationIndex;  // Индекс текущей анимации
+
+  BlinkBackState(this.animationIndex);
 
   @override
   void initState() {
     super.initState();
-
-    _animationController = AnimationController(
-      vsync: this,
-      duration: Duration(seconds: widget.timing),
-    )..repeat(reverse: true);
-
-    _animation = Tween(begin: 200.0, end: 300.0).animate(CurvedAnimation(
-      parent: _animationController,
-      curve: Curves.easeInOut,
-      reverseCurve: Curves.easeInOut,
-    ))..addListener(() {
-      setState(() {});
+    _provider = Provider.of<BlinkinProvider>(context, listen: false);
+    _provider!.getController(animationIndex).addListener(() {
+      _provider!.updateAnimationValue(animationIndex);
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    final animationValue = Provider.of<BlinkinProvider>(context).getAnimationValue(animationIndex);
+
     return Container(
       decoration: BoxDecoration(
         shape: BoxShape.circle,
@@ -75,8 +92,8 @@ class BlinkBackState extends State<BlinkinBackground>
         boxShadow: [
           BoxShadow(
             color: widget.color.withOpacity(widget.opacity),
-            blurRadius: _animation.value,
-            spreadRadius: _animation.value,
+            blurRadius: animationValue,
+            spreadRadius: animationValue,
           )
         ],
       ),
@@ -85,11 +102,12 @@ class BlinkBackState extends State<BlinkinBackground>
 
   @override
   void dispose() {
-    _animationController.dispose();
+    _provider!.getController(animationIndex).removeListener(() {
+      _provider!.updateAnimationValue(animationIndex);
+    });
     super.dispose();
   }
 }
-
 
 
 
