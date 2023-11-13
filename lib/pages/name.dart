@@ -20,7 +20,8 @@ class Name extends StatelessWidget {
     double height = MediaQuery.of(context).size.height;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
-    return Container(
+    return Material(
+      child: Container(
       width: double.infinity,
       child: Container(
         // name3A4 (162:515)
@@ -158,7 +159,7 @@ class Name extends StatelessWidget {
                       width: 32*fem,
                       height: 32*fem,
                       child: Image.asset(
-                        'assets/page-1/images/arrowforward-HFS.png',
+                        'assets/page-1/images/arrowforward_white.png',
                         width: 32*fem,
                         height: 32*fem,
                       ),
@@ -170,6 +171,7 @@ class Name extends StatelessWidget {
           ],
         ),
       ),
+    ),
           );
   }
 }

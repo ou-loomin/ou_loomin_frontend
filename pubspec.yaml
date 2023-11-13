@@ -46,7 +46,9 @@ dependencies:
   flare_flutter: ^3.0.2
   flutter_svg: ^0.22.0
   provider: ^6.0.5
-  audioplayers: ^5.1.0
+  flutter_staggered_animations: ^1.0.0
+  photo_view: ^0.13.0
+#  audioplayers: ^5.1.0
 
 dev_dependencies:
   flutter_test:
@@ -64,7 +66,6 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
-
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
@@ -79,10 +80,10 @@ flutter:
     - assets/page-1/images/arrowforward_white.png
     - assets/page-1/images/arrowforward_grey.png
     - assets/page-1/images/image-15.png
-    - assets/page-1/images/rectangle-64-bg.png
-    - assets/page-1/images/polygon-3.png
+    - assets/page-1/images/trackpass.png
+    - assets/page-1/images/mediplace.png
     - assets/page-1/images/vector-115.png
-    - assets/page-1/images/rectangle-28-bg.png
+    - assets/page-1/images/aliana.png
     - assets/page-1/images/icon-chevronleft.png
     - assets/page-1/images/ellipse-48-bg.png
     - assets/page-1/images/rectangle-79-bg.png
@@ -164,6 +165,20 @@ flutter:
     - assets/page-1/images/rectangle-50.png
     - assets/page-1/images/rectangle-36-bg-vrp.png
     - assets/page-1/images/rectangle-39-bg.png
+    - assets/page-1/images/polygon-3.png
+    - assets/page-1/images/huy.png
+    - assets/page-1/images/zap.png
+    - assets/page-1/images/pp.png
+    - assets/page-1/images/pp2.png
+    - assets/page-1/images/pp3.png
+    - assets/page-1/images/pp4.png
+    - assets/page-1/images/pp5.png
+    - assets/page-1/images/medi.png
+
+  fonts:
+    - family: MyFlutterApp
+      fonts:
+        - asset: ./assets/fonts/myIcons/fonts/MyFlutterApp.ttf
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

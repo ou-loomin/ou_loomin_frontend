@@ -4,29 +4,13 @@ import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/utils.dart';
 
-class Scene extends StatelessWidget {
+class news extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double baseWidth = 903;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
-    return Container(
-      width: double.infinity,
-      child: Container(
-        // newsXXS (279:795)
-        width: double.infinity,
-        height: 1323*fem,
-        decoration: BoxDecoration (
-          color: Color(0xff000000),
-          boxShadow: [
-            BoxShadow(
-              color: Color(0x3f000000),
-              offset: Offset(0*fem, 4*fem),
-              blurRadius: 2*fem,
-            ),
-          ],
-        ),
-        child: Stack(
+    return Stack(
           children: [
             Positioned(
               // rectangle2D9N (279:798)
@@ -547,8 +531,6 @@ class Scene extends StatelessWidget {
               ),
             ),
           ],
-        ),
-      ),
-          );
+        );
   }
 }

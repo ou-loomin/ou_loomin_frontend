@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:myapp/pages/additionalinfo.dart';
+import 'package:myapp/pages/name.dart';
 import 'dart:ui';
 
 import '../automats.dart';
@@ -19,7 +21,8 @@ class Birthdate extends StatelessWidget {
 
     DateTime _selectedDate = DateTime.now();
 
-    return Container(
+    return Scaffold(body:
+        Container(
       width: double.infinity,
       child: Container(
         width: double.infinity,
@@ -177,7 +180,7 @@ class Birthdate extends StatelessWidget {
               top: 704 * fem,
               child: TextButton(
                 onPressed: () {
-                  Navigator.of(context).push(fadedTransition(Main()));
+                  Navigator.of(context).push(fadedTransition(Additional()));
                 },
                 style: TextButton.styleFrom(
                   padding: EdgeInsets.zero,
@@ -208,6 +211,7 @@ class Birthdate extends StatelessWidget {
           ],
         ),
       ),
+        ),
     );
   }
 }

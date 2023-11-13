@@ -8,6 +8,7 @@ import 'package:myapp/utils.dart';
 import '../automats.dart';
 import '../globals.dart';
 import 'mainscreen.dart';
+import 'name.dart';
 
 
 class Agreement extends StatefulWidget {
@@ -80,7 +81,7 @@ class _AgreementState extends State<Agreement> {
         top: 693*fem,
         child: TextButton(
           onPressed: checkboxValue! ? () {
-            Navigator.of(context).push(fadedTransition(Birthdate()));
+            Navigator.of(context).push(fadedTransition(Name()));
           } : null,
           style: TextButton.styleFrom (
             padding: EdgeInsets.zero,

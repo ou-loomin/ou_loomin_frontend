@@ -45,7 +45,7 @@ class CardText extends StatelessWidget {
                 fontWeight: FontWeight.w700,
                 height: 0.8*ffem/fem,
                 letterSpacing: -0.5*fem,
-                color: Color(0x90ffffff),
+                color: Color(0xb0ffffff),
               ),
             ),
           ),
@@ -65,7 +65,7 @@ class CardText extends StatelessWidget {
                       width: 300*fem,
                       height: 20*fem,
                       child: Text(
-                        text['price'].toInt().toString()!,
+                        text['price']!,
                         style: SafeGoogleFont (
                           'Montserrat',
                           fontSize: 57*ffem,
@@ -87,7 +87,7 @@ class CardText extends StatelessWidget {
                       width: 300*fem,
                       height: 40*fem,
                       child: Text(
-                        '${text['price'].toInt()!}₽',
+                        '${text['price']!}₽',
                         style: SafeGoogleFont (
                           'Montserrat',
                           fontSize: 35*ffem,
@@ -123,7 +123,7 @@ class CardText extends StatelessWidget {
               text['description']!,
               style: SafeGoogleFont (
                 'Montserrat',
-                fontSize: 12*ffem,
+                fontSize: 14*ffem,
                 fontWeight: FontWeight.w700,
                 height: 1.6666666667*ffem/fem,
                 letterSpacing: -0.5*fem,
@@ -186,23 +186,23 @@ class GradientCardsList extends StatelessWidget {
       colors: <Color>[Color(0xffff001e), Color(0xffff9900)],
       stops: <double>[0, 1],
     ),
-    const LinearGradient (
-      begin: Alignment(-0.962, -0.966),
-      end: Alignment(1, 1.031),
-      colors: <Color>[Color(0xff0038ff), Color(0xff00efff)],
-      stops: <double>[0, 1],
-    ),
+    // const LinearGradient (
+    //   begin: Alignment(-0.962, -0.966),
+    //   end: Alignment(1, 1.031),
+    //   colors: <Color>[Color(0xff0038ff), Color(0xff00efff)],
+    //   stops: <double>[0, 1],
+    // ),
   ]; // это просто примерные градиенты, вы можете использовать свои
-  static const desc1 = 'Доступ ко всем медитациям\nЛичный гороскоп ежедневно\nТематический чат-бот \nНотальная карта\nПоддержка 24/7\nДуховные практики\nНаставничесво\n';
-  static const desc2 = 'Доступ ко всем медитациям\nЛичный гороскоп ежедневно\nЗлой тематический чат-бот \nНотальная карта\nПоддержка 12/7\nДуховные практики\n\n';
-  static const desc3 = 'Доступ ко всем медитациям\nЛичный гороскоп ежедневно\nНотальная карта (Половина)\nПоддержка 6/7\n\n\n\n';
-  static const desc4 = 'Тут будет все\n\n\n\n';
-  static const desc5 = 'Нихуя не будет тут\n\n\n\n';
+  static const desc1 = '• 2 медитации каждой категории\n• тех.поддержка 24/7\n• Личный чат с создателями\n• Истории ';
+  static const desc2 = '• Все медитации каждой категории\n• тех.поддержка 24/7\n• Личный чат с создателями\n• Доступ к новым функциям ';
+  static const desc3 = '• Все медитации каждой категории навсегда\n• тех.поддержка 24/7\n• Личный чат с создателями навсегда\n• Доступ к новым функция на всегда';
+  // static const desc4 = 'Тут будет все\n\n\n\n';
+  static const desc5 = '• 2 выбранные разработчиками медитации в месяц';
   final List<Map<String, String>> texts = [
-    {'name': 'BASIC', 'price':'490', 'description':desc1},
-    {'name': 'PLUS', 'price':'790', 'description':desc2},
-    {'name': 'PREMIUM', 'price':'1490', 'description':desc3},
-    {'name': 'FULL TIME', 'price':'37 980', 'description':desc4},
+    {'name': 'BASIC', 'price':'555', 'description':desc1},
+    {'name': 'ALL', 'price':'1 999', 'description':desc2},
+    {'name': 'FOREVER', 'price':'33 333', 'description':desc3},
+    // {'name': 'FULL TIME', 'price':'37 980', 'description':desc4},
     {'name': 'GUEST', 'price':'0', 'description':desc5}
   ];
 
@@ -241,7 +241,7 @@ class GradientCardsList extends StatelessWidget {
                   padding: EdgeInsets.symmetric(horizontal: 15 * fem),
                   child: GradientCard(
                     gradient: gradients[index],
-                    son: CardText(text: response[index]), // пример использования данных из response
+                    son: CardText(text: texts[index]), // пример использования данных из response
                   ),
                 );
               },
