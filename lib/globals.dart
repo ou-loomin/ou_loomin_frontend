@@ -33,6 +33,8 @@ class AnimationData {
 }
 
 bool isMusicPlaying = false;
+bool showBottomBar = false;
+int musicId = 10;
 
 // FUNCS
 checkLoggedIn(isLoggedIn) {

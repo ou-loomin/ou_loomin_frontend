@@ -1,16 +1,48 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/templates/player.dart';
 import 'dart:ui';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/utils.dart';
 
 import '../automats.dart';
-import '../reserve.dart';
+import '../globals.dart';
+import 'activityWidget.dart';
 
-class Main extends StatelessWidget {
-  const Main({super.key});
+List<Widget> buildItems(double baseWidth, double fem, double ffem, List<Map<String, String>> itemsData, void Function(int) onToggle) {
+  List<Widget> widgets = [];
+  for (int i = 0; i < itemsData.length; i++) {
+    widgets.add(buildItem(baseWidth, fem, ffem, itemsData[i], 527 * fem + i * 76 * fem, i < 2, onToggle, i));
+  }
+  return widgets;
+}
 
-  void myFunction() {
-    print('Кнопку нажали!');
+
+class Main extends StatefulWidget {
+  @override
+  _MainState createState() => _MainState();
+}
+
+
+class _MainState extends State<Main> {
+
+  void toggleMusic(int id) {
+    setState(() {
+      isMusicPlaying = true;
+      musicId = id;
+    });
+  }
+
+  void musicOff() {
+    setState(() {
+      isMusicPlaying = !isMusicPlaying;
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    setState(() {
+      showBottomBar = true; // Обновляем состояние
+    });
   }
 
   @override
@@ -19,7 +51,58 @@ class Main extends StatelessWidget {
     double height = MediaQuery.of(context).size.height;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
-    return SingleChildScrollView(child: Container(
+    final String textable = 'Повседневная практика показывает, что постоянный количественный рост и сфера нашей активности требуют определения и уточнения новых предложений. Идейные соображения высшего порядка, а также сложившаяся структура организации позволяет оценить значение систем массового участия. Значимость этих проблем настолько очевидна, что рамки и место обучения кадров в значительной степени обуславливает создание системы обучения кадров, соответствует насущным потребностям. Повседневная практика показывает, что постоянный количественный рост и сфера нашей активности требуют определения и уточнения новых предложений. Идейные соображения высшего порядка, а также сложившаяся структура организации позволяет оценить значение систем массового участия. Значимость этих проблем настолько очевидна, что рамки и место обучения кадров в значительной степени обуславливает создание системы обучения кадров, соответствует насущным потребностям.Повседневная практика показывает, что постоянный количественный рост и сфера нашей активности требуют определения и уточнения новых предложений. Идейные соображения высшего порядка, а также сложившаяся структура организации позволяет оценить значение систем массового участия. Значимость этих проблем настолько очевидна, что рамки и место обучения кадров в значительной степени обуславливает создание системы обучения кадров, соответствует насущным потребностям.Повседневная практика показывает, что постоянный количественный рост и сфера нашей активности требуют определения и уточнения новых предложений. Идейные соображения высшего порядка, а также сложившаяся структура организации позволяет оценить значение систем массового участия. Значимость этих проблем настолько очевидна, что рамки и место обучения кадров в значительной степени обуславливает создание системы обучения кадров, соответствует насущным потребностям.Повседневная практика показывает, что постоянный количественный рост и сфера нашей активности требуют определения и уточнения новых предложений. Идейные соображения высшего порядка, а также сложившаяся структура организации позволяет оценить значение систем массового участия. Значимость этих проблем настолько очевидна, что рамки и место обучения кадров в значительной степени обуславливает создание системы обучения кадров, соответствует насущным потребностям.Повседневная практика показывает, что постоянный количественный рост и сфера нашей активности требуют определения и уточнения новых предложений. Идейные соображения высшего порядка, а также сложившаяся структура организации позволяет оценить значение систем массового участия. Значимость этих проблем настолько очевидна, что рамки и место обучения кадров в значительной степени обуславливает создание системы обучения кадров, соответствует насущным потребностям.Повседневная практика показывает, что постоянный количественный рост и сфера нашей активности требуют определения и уточнения новых предложений. Идейные соображения высшего порядка, а также сложившаяся структура организации позволяет оценить значение систем массового участия. Значимость этих проблем настолько очевидна, что рамки и место обучения кадров в значительной степени обуславливает создание системы обучения кадров, соответствует насущным потребностям.Повседневная практика показывает, что постоянный количественный рост и сфера нашей активности требуют определения и уточнения новых предложений. Идейные соображения высшего порядка, а также сложившаяся структура организации позволяет оценить значение систем массового участия. Значимость этих проблем настолько очевидна, что рамки и место обучения кадров в значительной степени обуславливает создание системы обучения кадров, соответствует насущным потребностям.Повседневная практика показывает, что постоянный количественный рост и сфера нашей активности требуют определения и уточнения новых предложений. Идейные соображения высшего порядка, а также сложившаяся структура организации позволяет оценить значение систем массового участия. Значимость этих проблем настолько очевидна, что рамки и место обучения кадров в значительной степени обуславливает создание системы обучения кадров, соответствует насущным потребностям.Повседневная практика показывает, что постоянный количественный рост и сфера нашей активности требуют определения и уточнения новых предложений. Идейные соображения высшего порядка, а также сложившаяся структура организации позволяет оценить значение систем массового участия. Значимость этих проблем настолько очевидна, что рамки и место обучения кадров в значительной степени обуславливает создание системы обучения кадров, соответствует насущным потребностям.';
+    List<Map<String, String>> itemsData = [
+      {'title': 'Внутреннее спокойствие', 'author': 'ALIANA', 'img': 'assets/page-1/images/pp.png'},
+      {'title': 'Проработка страха', 'author': 'VNUTRO', 'img': 'assets/page-1/images/pp2.png'},
+      {'title': 'Любовь и гармония', 'author': 'VNUTRO', 'img': 'assets/page-1/images/pp3.png'},
+      {'title': 'Проработка страхов', 'author': 'VNUTRO', 'img': 'assets/page-1/images/pp4.png'},
+      {'title': 'Проработка страхов', 'author': 'VNUTRO', 'img': 'assets/page-1/images/pp5.png'},
+      // добавьте другие элементы здесь
+    ];
+    List<Map<String, String>> data = [
+      {
+        'title': 'МЕДИТАЦИЯ',
+        'description': 'Путь к умиротворению\nи гармонии',
+        'author': 'Алиана\nУстененко',
+        'img': 'assets/page-1/images/mediplace.png',
+        'author_img': 'assets/page-1/images/aliana.png',
+        'text': textable,
+      },      {
+        'title': 'РАЗВИТИЕ\nРАСШИРЕННОГО\nСОЗНАНИЯ',
+        'description': ' ',
+        'author': 'Макс Меченков',
+        'img': 'assets/page-1/images/medi.png',
+        'author_img': 'assets/page-1/images/trackpass.png',
+    'text': 'lol',
+      },      {
+        'title': 'МЕДИТАЦИЯ',
+        'description': 'Путь к умиротворению\nи гармонии',
+        'author': 'Алиана\nУстененко',
+        'img': 'assets/page-1/images/mediplace.png',
+        'author_img': 'assets/page-1/images/aliana.png',
+    'text': 'lol',
+      },      {
+        'title': 'МЕДИТАЦИЯ',
+        'description': 'Путь к умиротворению\nи гармонии',
+        'author': 'Алиана\nУстененко',
+        'img': 'assets/page-1/images/mediplace.png',
+        'author_img': 'assets/page-1/images/aliana.png',
+    'text': 'lol',
+      },      {
+        'title': 'МЕДИТАЦИЯ',
+        'description': 'Путь к умиротворению\nи гармонии',
+        'author': 'Алиана\nУстененко',
+        'img': 'assets/page-1/images/mediplace.png',
+        'author_img': 'assets/page-1/images/aliana.png',
+    'text': 'lol',
+      },
+      // добавьте дополнительные словари для других карточек
+    ];
+    return Scaffold(
+      extendBody: true,
+      body: SingleChildScrollView(
+      child: Container(
       width: baseWidth,
       child: Container(
         // mainscreenh24 (184:356)
@@ -74,17 +157,25 @@ class Main extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Container(
-                            // ellipse47uXS (188:372)
-                            margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 6*fem),
-                            width: double.infinity,
-                            height: 62*fem,
-                            decoration: BoxDecoration (
-                              borderRadius: BorderRadius.circular(31*fem),
-                              image: DecorationImage (
-                                fit: BoxFit.cover,
-                                image: AssetImage (
-                                  'assets/page-1/images/ellipse-47-bg.png',
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => InstagramStory()),
+                              );
+                            },
+                            child: Container(
+                              // ellipse47uXS (188:372)
+                              margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 6*fem),
+                              width: double.infinity,
+                              height: 62*fem,
+                              decoration: BoxDecoration (
+                                borderRadius: BorderRadius.circular(31*fem),
+                                image: DecorationImage (
+                                  fit: BoxFit.cover,
+                                  image: AssetImage (
+                                    'assets/page-1/images/ellipse-47-bg.png',
+                                  ),
                                 ),
                               ),
                             ),
@@ -348,374 +439,12 @@ class Main extends StatelessWidget {
               ),
             ),
 
-            Positioned(
-              // rsE (189:385)
-              left: 20*fem,
-              top: 603*fem,
-              child: Container(
-                padding: EdgeInsets.fromLTRB(19*fem, 8*fem, 17*fem, 8*fem),
-                width: baseWidth - 40*fem,
-                height: 66*fem,
-                decoration: BoxDecoration (
-                  border: Border.all(color: Color(0x6bffffff)),
-                  color: Color(0xff0e0315),
-                  borderRadius: BorderRadius.circular(14*fem),
-                ),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      // rectangle318Zr (189:387)
-                      margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 11*fem, 0*fem),
-                      width: 50*fem,
-                      height: 50*fem,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(18*fem),
-                        child: Image.asset(
-                          'assets/page-1/images/rectangle-31-m7i.png',
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
-                    Container(
-                      // autogroupwypzSKe (5z21Ssq7JjMFJqS8R6wyPz)
-                      margin: EdgeInsets.fromLTRB(0*fem, 5*fem, 55*fem, 0*fem),
-                      width: 159*fem,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Container(
-                            // m72 (189:388)
-                            margin: EdgeInsets.fromLTRB(3*fem, 0*fem, 0*fem, 5*fem),
-                            child: Text(
-                              'Проработка страхов',
-                              style: SafeGoogleFont (
-                                'Montserrat',
-                                fontSize: 14*ffem,
-                                fontWeight: FontWeight.w700,
-                                height: 1.4285714286*ffem/fem,
-                                letterSpacing: -0.5*fem,
-                                color: Color(0xffffffff),
-                              ),
-                            ),
-                          ),
-                          Container(
-                            // vnutrofiC (189:389)
-                            width: double.infinity,
-                            child: Text(
-                              'VNUTRO',
-                              textAlign: TextAlign.center,
-                              style: SafeGoogleFont (
-                                'Montserrat',
-                                fontSize: 15*ffem,
-                                fontWeight: FontWeight.w400,
-                                height: 1.3333333333*ffem/fem,
-                                letterSpacing: -0.5*fem,
-                                color: Color(0xffffffff),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Container(
-                      // polygon3Ci8 (189:390)
-                      width: 25*fem,
-                      height: 28*fem,
-                      child: Image.asset(
-                        'assets/page-1/images/polygon-3.png',
-                        width: 25*fem,
-                        height: 28*fem,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            Positioned(
-              // wfi (189:391)
-              left: 20*fem,
-              top: 686*fem,
-              child: Container(
-                padding: EdgeInsets.fromLTRB(19*fem, 8*fem, 24*fem, 8*fem),
-                width: baseWidth - 40*fem,
-                height: 66*fem,
-                decoration: BoxDecoration (
-                  color: Color(0xff0e0315),
-                  borderRadius: BorderRadius.circular(14*fem),
-                  border: Border.all(color: Color(0xffffffff)),
-                  image: DecorationImage (
-                    image: AssetImage (
-                      'assets/page-1/images/rectangle-28-bg-twe.png',
-                    ),
-                  ),
-                ),
-                child: ImageFiltered(
-                  imageFilter: ImageFilter.blur (
-                    sigmaX: 2*fem,
-                    sigmaY: 2*fem,
-                  ),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Container(
-                        // rectangle31mPr (189:393)
-                        margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 10*fem, 0*fem),
-                        width: 50*fem,
-                        height: 50*fem,
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(18*fem),
-                          child: Image.asset(
-                            'assets/page-1/images/rectangle-31-eUL.png',
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      ),
-                      Container(
-                        // autogroupzjknV4x (5z21tcbDzXTBeQXSgEZJKn)
-                        margin: EdgeInsets.fromLTRB(0*fem, 5*fem, 61*fem, 0*fem),
-                        width: 160*fem,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Container(
-                              // 1oz (189:394)
-                              margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 5*fem),
-                              width: double.infinity,
-                              child: Text(
-                                'Треки Паши Техника',
-                                textAlign: TextAlign.center,
-                                style: SafeGoogleFont (
-                                  'Montserrat',
-                                  fontSize: 14*ffem,
-                                  fontWeight: FontWeight.w700,
-                                  height: 1.4285714286*ffem/fem,
-                                  letterSpacing: -0.5*fem,
-                                  color: Color(0xffffffff),
-                                ),
-                              ),
-                            ),
-                            Container(
-                              // kunteinerX1e (189:395)
-                              margin: EdgeInsets.fromLTRB(5*fem, 0*fem, 0*fem, 0*fem),
-                              child: Text(
-                                'KUNTEINER',
-                                style: SafeGoogleFont (
-                                  'Montserrat',
-                                  fontSize: 15*ffem,
-                                  fontWeight: FontWeight.w400,
-                                  height: 1.3333333333*ffem/fem,
-                                  letterSpacing: -0.5*fem,
-                                  color: Color(0xffffffff),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Container(
-                        // vector115dqN (370:1400)
-                        margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 1*fem),
-                        width: 12*fem,
-                        height: 19*fem,
-                        child: Image.asset(
-                          'assets/page-1/images/vector-115.png',
-                          width: 12*fem,
-                          height: 19*fem,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-            Positioned(
-              // mRn (275:797)
-              left: 20*fem,
-              top: 770*fem,
-              child: Container(
-                padding: EdgeInsets.fromLTRB(19*fem, 8*fem, 24*fem, 8*fem),
-                width: baseWidth - 40*fem,
-                height: 66*fem,
-                decoration: BoxDecoration (
-                  color: Color(0xff0e0315),
-                  borderRadius: BorderRadius.circular(14*fem),
-                  border: Border.all(color: Color(0xffffffff)),
-                  image: DecorationImage (
-                    image: AssetImage (
-                      'assets/page-1/images/rectangle-28-bg-tFn.png',
-                    ),
-                  ),
-                ),
-                child: ImageFiltered(
-                  imageFilter: ImageFilter.blur (
-                    sigmaX: 2*fem,
-                    sigmaY: 2*fem,
-                  ),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Container(
-                        // rectangle31p9A (275:800)
-                        margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 15*fem, 0*fem),
-                        width: 50*fem,
-                        height: 50*fem,
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(18*fem),
-                          child: Image.asset(
-                            'assets/page-1/images/rectangle-31-rwn.png',
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      ),
-                      Container(
-                        // autogroupibtjjG8 (5z22PGS9cP61kRhgFQibTJ)
-                        margin: EdgeInsets.fromLTRB(0*fem, 5*fem, 87*fem, 0*fem),
-                        width: 129*fem,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Container(
-                              // GWx (275:801)
-                              margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 5*fem),
-                              child: Text(
-                                'Разговор с собой',
-                                style: SafeGoogleFont (
-                                  'Montserrat',
-                                  fontSize: 14*ffem,
-                                  fontWeight: FontWeight.w700,
-                                  height: 1.4285714286*ffem/fem,
-                                  letterSpacing: -0.5*fem,
-                                  color: Color(0xffffffff),
-                                ),
-                              ),
-                            ),
-                            Container(
-                              // alianaanY (275:802)
-                              width: double.infinity,
-                              child: Text(
-                                'ALIANA',
-                                textAlign: TextAlign.center,
-                                style: SafeGoogleFont (
-                                  'Montserrat',
-                                  fontSize: 15*ffem,
-                                  fontWeight: FontWeight.w400,
-                                  height: 1.3333333333*ffem/fem,
-                                  letterSpacing: -0.5*fem,
-                                  color: Color(0xffffffff),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Container(
-                        // vector116Ww6 (370:1403)
-                        margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 1*fem),
-                        width: 12*fem,
-                        height: 21*fem,
-                        child: Image.asset(
-                          'assets/page-1/images/vector-116.png',
-                          width: 12*fem,
-                          height: 19*fem,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-            Positioned(
-              // eGc (275:804)
-              left: 20*fem,
-              top: 854*fem,
-              child: Container(
-                padding: EdgeInsets.fromLTRB(19*fem, 8*fem, 24*fem, 8*fem),
-                width: baseWidth - 40*fem,
-                height: 66*fem,
-                decoration: BoxDecoration (
-                  color: Color(0xff0e0315),
-                  borderRadius: BorderRadius.circular(14*fem),
-                  border: Border.all(color: Color(0xffffffff)),
-                ),
-                child: ImageFiltered(
-                  imageFilter: ImageFilter.blur (
-                    sigmaX: 2*fem,
-                    sigmaY: 2*fem,
-                  ),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Container(
-                        // rectangle31UFe (275:807)
-                        margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 14*fem, 0*fem),
-                        width: 50*fem,
-                        height: 50*fem,
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(18*fem),
-                          child: Image.asset(
-                            'assets/page-1/images/rectangle-31-pxL.png',
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      ),
-                      Container(
-                        // autogroup17pxzUt (5z22qFgr9Z2zsEdUHB17px)
-                        margin: EdgeInsets.fromLTRB(0*fem, 5*fem, 111*fem, 0*fem),
-                        width: 106*fem,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Container(
-                              // jSU (275:808)
-                              margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 5*fem),
-                              child: Text(
-                                'Не ешь грибы',
-                                style: SafeGoogleFont (
-                                  'Montserrat',
-                                  fontSize: 14*ffem,
-                                  fontWeight: FontWeight.w700,
-                                  height: 1.4285714286*ffem/fem,
-                                  letterSpacing: -0.5*fem,
-                                  color: Color(0xffffffff),
-                                ),
-                              ),
-                            ),
-                            Container(
-                              // alianaT7a (275:809)
-                              width: double.infinity,
-                              child: Text(
-                                'ALIANA',
-                                textAlign: TextAlign.center,
-                                style: SafeGoogleFont (
-                                  'Montserrat',
-                                  fontSize: 15*ffem,
-                                  fontWeight: FontWeight.w400,
-                                  height: 1.3333333333*ffem/fem,
-                                  letterSpacing: -0.5*fem,
-                                  color: Color(0xffffffff),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Container(
-                        // vector117PG8 (370:1404)
-                        margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 1*fem),
-                        width: 12*fem,
-                        height: 19*fem,
-                        child: Image.asset(
-                          'assets/page-1/images/vector-117.png',
-                          width: 12*fem,
-                          height: 19*fem,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
+            // ----------------- MUSIC LIST -----------------
+            ...buildItems(baseWidth, fem, ffem, itemsData, toggleMusic),
+
+
+
+
             Positioned(
               // iJQ (275:827)
               left: baseWidth / 2 - 31*fem,
@@ -745,413 +474,40 @@ class Main extends StatelessWidget {
                 ),
               ),
             ),
+
             Positioned(
-              // arQ (275:829)
-              left: 268*fem,
-              top: 1061*fem,
+              // iJQ (275:827)
+              top: 1412*fem,
+              left: 45*fem,
               child: Container(
                 width: 303*fem,
-                height: 328*fem,
-                child: Stack(
-                  children: [
-                    Positioned(
-                      // rectangle26UB6 (275:830)
-                      left: 0*fem,
-                      top: 0*fem,
-                      child: Align(
-                        child: SizedBox(
-                          width: 303*fem,
-                          height: 267*fem,
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(42*fem),
-                            child: Image.asset(
-                              'assets/page-1/images/rectangle-26.png',
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      // nBn (275:833)
-                      left: 111*fem,
-                      top: 238*fem,
-                      child: Align(
-                        child: SizedBox(
-                          width: 70*fem,
-                          height: 20*fem,
-                          child: Text(
-                            'ЧИТАТЬ',
-                            textAlign: TextAlign.center,
-                            style: SafeGoogleFont (
-                              'TT Commons',
-                              fontSize: 15*ffem,
-                              fontWeight: FontWeight.w400,
-                              height: 1.3333333333*ffem/fem,
-                              letterSpacing: 1.5*fem,
-                              color: Color(0xffffffff),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      // rectangle28GMr (275:835)
-                      left: 0*fem,
-                      top: 0*fem,
-                      child: Align(
-                        child: SizedBox(
-                          width: 303*fem,
-                          height: 328*fem,
-                          child: TextButton(
-                            onPressed: () {},
-                            style: TextButton.styleFrom (
-                              padding: EdgeInsets.zero,
-                            ),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(42*fem),
-                              child: Image.asset(
-                                'assets/page-1/images/rectangle-28.png',
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      // NQt (275:836)
-                      left: 15*fem,
-                      top: 127*fem,
-                      child: Align(
-                        child: SizedBox(
-                          width: 159*fem,
-                          height: 34*fem,
-                          child: Text(
-                            'Путь к умиротворению\nи гармонии',
-                            style: SafeGoogleFont (
-                              'Mountains of Christmas',
-                              fontSize: 14*ffem,
-                              fontWeight: FontWeight.w400,
-                              height: 1.2142857143*ffem/fem,
-                              letterSpacing: -0.5*fem,
-                              color: Color(0xffffffff),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      // autogrouprmo2edJ (5z23PjkipWyEGFHiKNrmo2)
-                      left: 211*fem,
-                      top: 15*fem,
-                      child: Container(
-                        width: 57*fem,
-                        height: 20*fem,
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Container(
-                              // aWx (275:848)
-                              margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 4*fem, 0*fem),
-                              child: Text(
-                                'ПЕРЕЙТИ ',
-                                textAlign: TextAlign.center,
-                                style: SafeGoogleFont (
-                                  'Montserrat',
-                                  fontSize: 10*ffem,
-                                  fontWeight: FontWeight.w400,
-                                  height: 2*ffem/fem,
-                                  letterSpacing: -0.5*fem,
-                                  color: Color(0xffffffff),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      // autogroupccoe6VJ (5z23eKAmUpdh6ViJsbccoe)
-                      left: 26*fem,
-                      top: 251*fem,
-                      child: Container(
-                        width: 125*fem,
-                        height: 38*fem,
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            Container(
-                              // rectangle33R1n (275:846)
-                              margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 6*fem, 2*fem),
-                              width: 38*fem,
-                              height: 36*fem,
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(18*fem),
-                                child: Image.asset(
-                                  'assets/page-1/images/rectangle-33-7NU.png',
-                                ),
-                              ),
-                            ),
-                            Container(
-                              // vjE (275:847)
-                              constraints: BoxConstraints (
-                                maxWidth: 81*fem,
-                              ),
-                              child: Text(
-                                'Алиана\nУстененко',
-                                style: SafeGoogleFont (
-                                  'Montserrat',
-                                  fontSize: 14*ffem,
-                                  fontWeight: FontWeight.w700,
-                                  height: 1.2142857143*ffem/fem,
-                                  letterSpacing: -0.5*fem,
-                                  color: Color(0xffffffff),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      // SxU (275:844)
-                      left: 14*fem,
-                      top: 97*fem,
-                      child: Align(
-                        child: SizedBox(
-                          width: 162*fem,
-                          height: 20*fem,
-                          child: Text(
-                            'МЕДИТАЦИЯ',
-                            style: SafeGoogleFont (
-                              'Montserrat',
-                              fontSize: 25*ffem,
-                              fontWeight: FontWeight.w700,
-                              height: 0.8*ffem/fem,
-                              letterSpacing: -0.5*fem,
-                              color: Color(0xffffffff),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
+                height: 200*fem,
+                decoration: BoxDecoration (
+                  color: Color(0xa82a0d45),
+                  borderRadius: BorderRadius.circular(17*fem),
+                  border: Border (
+                  ),
+                ),
+                child: ActivityChartWidget(
+                  activityData: {
+                    "SUN": 1.5,
+                    "MON": 2.0,
+                    "TUE": 2.5,
+                    "WED": 3.0,
+                    "THU": 3.5,
+                    "FRI": 4.0,
+                    "SAT": 2.0,
+                  },
                 ),
               ),
             ),
+            
             Positioned(
-              // YVi (370:1378)
-              left: 607*fem,
               top: 1061*fem,
-              child: Container(
-                width: 303*fem,
-                height: 328*fem,
-                child: Stack(
-                  children: [
-                    Positioned(
-                      // rectangle26GAp (370:1379)
-                      left: 0*fem,
-                      top: 0*fem,
-                      child: Align(
-                        child: SizedBox(
-                          width: 303*fem,
-                          height: 267*fem,
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(42*fem),
-                            child: Image.asset(
-                              'assets/page-1/images/rectangle-26-35e.png',
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      // yqv (370:1380)
-                      left: 111*fem,
-                      top: 238*fem,
-                      child: Align(
-                        child: SizedBox(
-                          width: 70*fem,
-                          height: 20*fem,
-                          child: Text(
-                            'ЧИТАТЬ',
-                            textAlign: TextAlign.center,
-                            style: SafeGoogleFont (
-                              'TT Commons',
-                              fontSize: 15*ffem,
-                              fontWeight: FontWeight.w400,
-                              height: 1.3333333333*ffem/fem,
-                              letterSpacing: 1.5*fem,
-                              color: Color(0xffffffff),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      // rectangle28UXn (370:1381)
-                      left: 0*fem,
-                      top: 0*fem,
-                      child: Align(
-                        child: SizedBox(
-                          width: 303*fem,
-                          height: 328*fem,
-                          child: TextButton(
-                            onPressed: () {},
-                            style: TextButton.styleFrom (
-                              padding: EdgeInsets.zero,
-                            ),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(42*fem),
-                              child: Image.asset(
-                                'assets/page-1/images/rectangle-28-hHe.png',
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      // nHa (370:1382)
-                      left: 15*fem,
-                      top: 164*fem,
-                      child: Align(
-                        child: SizedBox(
-                          width: 175*fem,
-                          height: 17*fem,
-                          child: RichText(
-                            text: TextSpan(
-                              style: SafeGoogleFont (
-                                'Montserrat',
-                                fontSize: 14*ffem,
-                                fontWeight: FontWeight.w700,
-                                height: 1.2142857143*ffem/fem,
-                                letterSpacing: -0.5*fem,
-                                color: Color(0xffffffff),
-                              ),
-                              children: [
-                                TextSpan(
-                                  text: 'Ключ к духовному росту',
-                                  style: SafeGoogleFont (
-                                    'Mountains of Christmas',
-                                    fontSize: 14*ffem,
-                                    fontWeight: FontWeight.w400,
-                                    height: 1.2142857143*ffem/fem,
-                                    letterSpacing: -0.5*fem,
-                                    color: Color(0xffffffff),
-                                  ),
-                                ),
-                                TextSpan(
-                                  text: '  ',
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      // autogroupsitcbeL (5z24SsfX7LYHmH8Bvksitc)
-                      left: 211*fem,
-                      top: 15*fem,
-                      child: Container(
-                        width: 57*fem,
-                        height: 20*fem,
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Container(
-                              // XXz (370:1383)
-                              margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 4*fem, 0*fem),
-                              child: Text(
-                                'ПЕРЕЙТИ ',
-                                textAlign: TextAlign.center,
-                                style: SafeGoogleFont (
-                                  'Montserrat',
-                                  fontSize: 10*ffem,
-                                  fontWeight: FontWeight.w400,
-                                  height: 2*ffem/fem,
-                                  letterSpacing: -0.5*fem,
-                                  color: Color(0xffffffff),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      // autogroup2r2ldqv (5z24d33FjKba9eSzZ92R2L)
-                      left: 26*fem,
-                      top: 251*fem,
-                      child: Container(
-                        width: 121*fem,
-                        height: 38*fem,
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            Container(
-                              // rectangle33kvY (370:1386)
-                              margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 6*fem, 2*fem),
-                              width: 38*fem,
-                              height: 36*fem,
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(18*fem),
-                                child: Image.asset(
-                                  'assets/page-1/images/rectangle-33.png',
-                                ),
-                              ),
-                            ),
-                            Container(
-                              // 5T2 (370:1384)
-                              constraints: BoxConstraints (
-                                maxWidth: 77*fem,
-                              ),
-                              child: Text(
-                                'Макс\nМеченков',
-                                style: SafeGoogleFont (
-                                  'Montserrat',
-                                  fontSize: 14*ffem,
-                                  fontWeight: FontWeight.w700,
-                                  height: 1.2142857143*ffem/fem,
-                                  letterSpacing: -0.5*fem,
-                                  color: Color(0xffffffff),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      // oP2 (370:1387)
-                      left: 14*fem,
-                      top: 97*fem,
-                      child: Align(
-                        child: SizedBox(
-                          width: 217*fem,
-                          height: 80*fem,
-                          child: Text(
-                            'РАЗВИТИЕ \nРАСШИРЕННОГО\nСОЗНАНИЯ',
-                            style: SafeGoogleFont (
-                              'Montserrat',
-                              fontSize: 25*ffem,
-                              fontWeight: FontWeight.w700,
-                              height: 0.8*ffem/fem,
-                              letterSpacing: -0.5*fem,
-                              color: Color(0xffffffff),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              child: generateCards(data, fem, ffem, baseWidth),
             ),
+
+
             Positioned(
               // Hoz (191:382)
               left: 20*fem,
@@ -1284,7 +640,7 @@ class Main extends StatelessWidget {
                               image: DecorationImage (
                                 fit: BoxFit.cover,
                                 image: AssetImage (
-                                  'assets/page-1/images/rectangle-28-bg-Dnt.png',
+                                  'assets/page-1/images/zap.png',
                                 ),
                               ),
                             ),
@@ -1366,6 +722,16 @@ class Main extends StatelessWidget {
           ],
         ),
       ),
-          ));
+    ),
+    ),
+      bottomNavigationBar: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          if (isMusicPlaying) MusicDockBar(onPlayPauseToggle: musicOff),
+          CustomDockBar(), // Основной докбар всегда видим
+        ],
+      ),
+    );
   }
+
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:myapp/pages/survey.dart';
 import 'package:myapp/utils.dart';
 
 import '../automats.dart';
@@ -19,7 +20,7 @@ class Additional extends StatelessWidget {
     double height = MediaQuery.of(context).size.height;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
-    return Container(
+    return Material(child: Container(
       width: double.infinity,
       child: Container(
         width: double.infinity,
@@ -145,7 +146,6 @@ class Additional extends StatelessWidget {
                       border: Border.all(color: Color(0xffffffff)),
                     ),
                     child: TextField(
-                      obscureText: true,
                       cursorColor: Colors.white,
                       // cursorHeight: 12*ffem,
                       cursorWidth: 1,
@@ -222,7 +222,9 @@ class Additional extends StatelessWidget {
               left: 165*fem,
               top: 704*fem,
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(fadedTransition(Survey()));
+                },
                 style: TextButton.styleFrom (
                   padding: EdgeInsets.zero,
                 ),
@@ -252,6 +254,7 @@ class Additional extends StatelessWidget {
           ],
         ),
       ),
+    ),
           );
   }
 }

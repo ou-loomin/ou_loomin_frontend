@@ -16,11 +16,11 @@ class Survey extends StatefulWidget {
 class _SurveyState extends State<Survey> with TickerProviderStateMixin {
   Map<String, List<String>> questions = {
     'Укажите ваш пол': ['Мужской', 'Женский'],
-    'лол': ['1', '2', '3'],
-    'лол2': ['1', '2', '3', '4'],
-    'лол3': ['1', '2', '3'],
-    'лол4': ['1', '2', '3'],
-    'лол5': ['1', '2', '3', '4', '5', '6'],
+    'Как часто вы испытываете тревогу?': ['Часто', 'Периодически', 'Редко'],
+    'Что для вас сейчас важнее всего?': ['Самооценка', 'Отношения', 'Продуктивность'],
+    'Что бы вы хотели подкорректировать в своей жизни?': ['Здоровье', 'Отношения', 'Самоощущение'],
+    'Что бы вы хотели слушать на ночь?': ['Медитации', 'Мелодии', 'АСМР', 'Истории'],
+    'Есть ли у вас опыт медитаций?': ['Занимаюся', 'Пару раз', 'Нет'],
   };
 
   String? currentQuestion;
@@ -51,7 +51,7 @@ class _SurveyState extends State<Survey> with TickerProviderStateMixin {
           _fadeController.reverse();
         }
       });
-
+  
   }
 
   _switchQuestion() {
@@ -60,7 +60,7 @@ class _SurveyState extends State<Survey> with TickerProviderStateMixin {
       currentQuestion = questions.keys.toList()[currentIndex + 1];
       selectedAnswer = null;
     } else {
-      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => Main()));
+      Navigator.of(context).push(fadedTransition(Main()));;
     }
   }
 
@@ -77,7 +77,7 @@ class _SurveyState extends State<Survey> with TickerProviderStateMixin {
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
 
-    return Container(
+    return Scaffold(body: Container(
       width: double.infinity,
       child: Container(
         width: double.infinity,
@@ -216,6 +216,7 @@ class _SurveyState extends State<Survey> with TickerProviderStateMixin {
       );
         }
             ),
+    ),
     ),
     );
   }

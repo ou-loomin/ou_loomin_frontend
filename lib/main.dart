@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:myapp/pages/additionalinfo.dart';
 import 'package:myapp/pages/birthdate.dart';
+import 'package:myapp/pages/player.dart';
 import 'package:myapp/pages/tariff.dart';
 import 'package:myapp/templates/player.dart';
 import 'package:myapp/pages/r2.dart';
@@ -46,11 +47,13 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
 	bool? isLoggedIn;
+	Widget currentBody = OpenScreen();
 
 	Future<void> checkLoggedIn() async {
 		final SharedPreferences prefs = await SharedPreferences.getInstance();
 		bool? _isLoggedIn = prefs.getBool('isLogin');
 		print(_isLoggedIn);
+
 
 		setState(() {
 			isLoggedIn = _isLoggedIn;
@@ -69,6 +72,7 @@ class _MyAppState extends State<MyApp> {
 			title: 'OU LOOMIN',
 			debugShowCheckedModeBanner: false,
 			scrollBehavior: MyCustomScrollBehavior(),
+			color: Colors.transparent,
 			theme: ThemeData(
 				primarySwatch: Colors.indigo,
 			),
@@ -87,12 +91,13 @@ class _MyAppState extends State<MyApp> {
 					body: SingleChildScrollView(
 							child:
 					// Main()
+					// 	MusicPlayerPage()
 					// Name()
 					// Birthdate()
-					// OpenScreen()
+					OpenScreen()
 					// Additional()
 					// Agreement()
-					Survey()
+					// Survey()
 					// Login()
 					// Tariff()
 					// MyPageView()
@@ -104,9 +109,6 @@ class _MyAppState extends State<MyApp> {
 				),
 			),
 		),
-			bottomNavigationBar: isMusicPlaying ? ChangeNotifierProvider(
-					create: (context) => MusicService(),
-					child: MusicService().isPlaying ? MusicPlayerDockBar() : null) : null,
 		),
 			),
 		);

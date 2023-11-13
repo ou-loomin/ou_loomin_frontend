@@ -198,10 +198,7 @@ class Login extends StatelessWidget {
                   height: 7 * fem,
                   child: TextButton(
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => Agreement()),
-                      );
+                      Navigator.of(context).push(fadedTransition(Agreement()));
                     },
                     style: TextButton.styleFrom(
                       padding: EdgeInsets.zero,
