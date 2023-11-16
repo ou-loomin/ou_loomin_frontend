@@ -190,32 +190,47 @@ class Login extends StatelessWidget {
             ),
             Positioned(
               // eTe (162:496)
-              left: 157.5 * fem,
-              top: 439 * fem,
-              child: Align(
-                child: SizedBox(
-                  width: 75 * fem,
-                  height: 7 * fem,
-                  child: TextButton(
-                    onPressed: () {
-                      Navigator.of(context).push(fadedTransition(Agreement()));
-                    },
-                    style: TextButton.styleFrom(
-                      padding: EdgeInsets.zero,
-                      side: BorderSide.none,
+              left: 140 * fem,
+              top: 430 * fem,
+              child: Container(
+                width: 95 * fem,
+                height: 30 * fem,
+                margin: EdgeInsets.fromLTRB(
+                    7 * fem, 0 * fem, 9 * fem, 0 * fem),
+                child: TextButton(
+                  onPressed: () {
+                    Navigator.of(context).push(fadedTransition(Agreement()));
+                  },
+                  style: TextButton.styleFrom(
+                    padding: EdgeInsets.zero,
+                    side: BorderSide.none,
+                    splashFactory: NoSplash.splashFactory,
+                  ),
+                  child: Container(
+                    padding: EdgeInsets.fromLTRB(
+                        9 * fem, 6 * fem, 10 * fem, 8 * fem),
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      color: Color(0x00000000),
+                      borderRadius: BorderRadius.circular(53 * fem),
                     ),
-                    child: Text(
-                      'Регистрация',
-                      textAlign: TextAlign.center,
-                      style: SafeGoogleFont(
-                        'Montserrat',
-                        fontSize: 12 * ffem,
-                        fontWeight: FontWeight.w400,
-                        height: 0.5416666667 * ffem / fem,
-                        letterSpacing: -0.5 * fem,
-                        decoration: TextDecoration.underline,
-                        color: Color(0xffffffff),
-                        decorationColor: Color(0xffffffff),
+                    child: Container(
+                      // signupwithapple6RS (191:448)
+                      margin: EdgeInsets.fromLTRB(
+                          0 * fem, 3 * fem, 0 * fem, 0 * fem),
+                      child: Text(
+                        'Регистрация',
+                        textAlign: TextAlign.center,
+                        style: SafeGoogleFont(
+                          'Montserrat',
+                          fontSize: 12 * ffem,
+                          fontWeight: FontWeight.w400,
+                          height: 0.5416666667 * ffem / fem,
+                          letterSpacing: -0.5 * fem,
+                          decoration: TextDecoration.underline,
+                          color: Color(0xffffffff),
+                          decorationColor: Color(0xffffffff),
+                        ),
                       ),
                     ),
                   ),
