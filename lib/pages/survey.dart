@@ -4,6 +4,7 @@ import 'dart:ui';
 import 'package:myapp/globals.dart';
 import 'package:myapp/automats.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:myapp/pages/tariff.dart';
 import 'package:myapp/utils.dart';
 
 import 'mainscreen.dart';
@@ -60,7 +61,7 @@ class _SurveyState extends State<Survey> with TickerProviderStateMixin {
       currentQuestion = questions.keys.toList()[currentIndex + 1];
       selectedAnswer = null;
     } else {
-      Navigator.of(context).push(fadedTransition(Main()));;
+      Navigator.of(context).push(fadedTransition(Tariff()));;
     }
   }
 

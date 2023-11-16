@@ -3,6 +3,7 @@ import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/pages/survey.dart';
+import 'package:myapp/pages/tariff.dart';
 import 'package:myapp/utils.dart';
 
 import '../automats.dart';

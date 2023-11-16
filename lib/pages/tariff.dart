@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/pages/survey.dart';
 import 'package:myapp/pages/tariffs.dart';
 import 'package:myapp/utils.dart';
 
 import '../automats.dart';
 import '../globals.dart';
+import 'mainscreen.dart';
 
 class Tariff extends StatelessWidget {
   @override
@@ -12,7 +14,7 @@ class Tariff extends StatelessWidget {
     double height = MediaQuery.of(context).size.height;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
-    return Container(
+    return Material(child: Container(
       width: double.infinity,
       child: Container(
         // tariffami (249:796)
@@ -119,7 +121,7 @@ class Tariff extends StatelessWidget {
               top: 704*fem,
               child: TextButton(
                 onPressed: () {
-                  
+                  Navigator.of(context).push(fadedTransition(Main()));
                 },
                 style: TextButton.styleFrom (
                   padding: EdgeInsets.zero,
@@ -150,6 +152,7 @@ class Tariff extends StatelessWidget {
           ],
         ),
       ),
-          );
+    ),
+    );
   }
 }
