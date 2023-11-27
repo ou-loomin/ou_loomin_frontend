@@ -5,6 +5,9 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:myapp/pages/mainscreen.dart';
+import 'package:myapp/pages/news1.dart';
+import 'package:myapp/pages/practaro.dart';
 import 'package:myapp/utils.dart';
 import 'package:provider/provider.dart';
 import 'templates/my_flutter_app_icons.dart';
@@ -561,7 +564,11 @@ Widget generateCards(List<Map<String, String>> data, double fem, double ffem, do
     itemBuilder: (BuildContext context, int index) {
       final item = data[index];
       return GestureDetector(
-          onTap: () => _showCupertinoModal(context, item['text']!), // вызов всплывающего меню при нажатии
+          onTap: () => showModalBottomSheet(
+            context: context,
+            builder: (context) => ArticlePage(),
+            isScrollControlled: true,
+          ), // вызов всплывающего меню при нажатии
       child: Container(
         margin: EdgeInsets.symmetric(horizontal: 15 * fem),
         width: 303 * fem,
@@ -882,7 +889,43 @@ class ActivityHistogram extends StatelessWidget {
 }
 
 
-class CustomDockBar extends StatelessWidget {
+class CustomDockBar extends StatefulWidget {
+  @override
+  _CustomDockBarState createState() => _CustomDockBarState();
+}
+
+class _CustomDockBarState extends State<CustomDockBar> {
+
+  void _onItemTapped(int index) {
+    if (selectedIndex != index) {
+      setState(() {
+        selectedIndex = index;
+      });
+      // Переход без анимации
+      Navigator.of(context).pushReplacement(
+        PageRouteBuilder(
+          pageBuilder: (context, animation1, animation2) => _getPage(index),
+          transitionDuration: Duration.zero, // Установите длительность перехода в ноль
+        ),
+      );
+    }
+  }
+
+  Widget _getPage(int index) {
+    switch (index) {
+      case 0:
+        return PracRunes();
+      case 1:
+        return PracRunes();
+      case 2:
+        return Main();
+    // Добавьте остальные экраны здесь
+      default:
+        return Main();
+    }
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return BottomAppBar(
@@ -896,22 +939,55 @@ class CustomDockBar extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            IconButton(icon: Icon(Icons.person_outline, color: Colors.white,), onPressed: () {}),
-            IconButton(icon: Icon(Icons.location_on, color: Colors.white,), onPressed: () {}),
-            // This padding is for the floating action button
+            IconButton(
+              icon: Icon(Icons.person_outline, color: selectedIndex == 0 ? Colors.blue : Colors.white),
+              onPressed: () => _onItemTapped(0),
+            ),
+            IconButton(
+              icon: Icon(Icons.location_on, color: selectedIndex == 1 ? Colors.blue : Colors.white),
+              onPressed: () => _onItemTapped(1),
+            ),
             Padding(
               padding: const EdgeInsets.only(top: 10.0, bottom: 10.0),
-              child: FloatingActionButton(
-                onPressed: () {},
-                backgroundColor: Colors.purple,
-                child: Icon(Icons.home),
+              child: InkWell(
+                onTap: () {
+                  _onItemTapped(2);
+                },
+                child: Container(
+                  width: 56.0,
+                  height: 56.0,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    gradient: LinearGradient(
+                        colors: [
+                          Color(0xffd682eb),
+                          Color(0xff400080),
+                        ],
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                        stops: [
+                          0.3,
+                          0.7,
+                        ]
+                    ),
+                  ),
+                  child: Icon(Icons.home, color: Colors.white),
+                  alignment: Alignment.center,
+                ),
               ),
             ),
-            IconButton(icon: Icon(Icons.notifications_none, color: Colors.white,), onPressed: () {}),
-            IconButton(icon: Icon(Icons.settings, color: Colors.white,), onPressed: () {}),
+            IconButton(
+              icon: Icon(Icons.notifications_none, color: selectedIndex == 3 ? Colors.blue : Colors.white),
+              onPressed: () => _onItemTapped(3),
+            ),
+            IconButton(
+              icon: Icon(Icons.settings, color: selectedIndex == 4 ? Colors.blue : Colors.white),
+              onPressed: () => _onItemTapped(4),
+            ),
           ],
         ),
       ),
     );
   }
 }
+

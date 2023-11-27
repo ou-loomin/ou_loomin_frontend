@@ -1,14 +1,7 @@
-// import 'package:audioplayers/audioplayers.dart';
+import 'package:audioplayers/audioplayers.dart';
 import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/gestures.dart';
-import 'package:flutter/services.dart';
-import 'dart:ui';
-
-import 'package:provider/provider.dart';
-
-import '../automats.dart';
+import '../pages/player.dart';
 
 class MusicDockBar extends StatefulWidget {
   final VoidCallback onPlayPauseToggle;
@@ -44,6 +37,16 @@ class _MusicDockBarState extends State<MusicDockBar> {
     });
   }
 
+  void openMusicPlayer() {
+    showModalBottomSheet(
+      context: context,
+      builder: (context) => MusicPlayer(), // Ваш виджет MusicPlayer
+      isScrollControlled: true, // Это позволяет листать содержимое на весь экран
+    );
+  }
+
+
+
   @override
   void dispose() {
     _timer?.cancel(); // Отменяем таймер при удалении виджета из дерева
@@ -56,7 +59,9 @@ class _MusicDockBarState extends State<MusicDockBar> {
       color: Colors.transparent,
       // Сделаем BottomAppBar прозрачным
       elevation: 0, // Удалить тень
-      child: Container(
+      child: GestureDetector(
+        onTap: openMusicPlayer,
+        child: Container(
         decoration: BoxDecoration(
           color: Color(0xF5513970),
           borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
@@ -154,6 +159,7 @@ class _MusicDockBarState extends State<MusicDockBar> {
           // ),
           ],
         ),
+      ),
       ),
     );
   }

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/pages/news1.dart';
+import 'package:myapp/pages/player.dart';
 import 'package:myapp/templates/player.dart';
 import 'dart:ui';
 import 'package:myapp/utils.dart';
@@ -16,6 +18,7 @@ List<Widget> buildItems(double baseWidth, double fem, double ffem, List<Map<Stri
 }
 
 
+
 class Main extends StatefulWidget {
   @override
   _MainState createState() => _MainState();
@@ -31,6 +34,14 @@ class _MainState extends State<Main> {
     });
   }
 
+  void openNews() {
+    showModalBottomSheet(
+      context: context,
+      builder: (context) => ArticlePage(),
+      isScrollControlled: true,
+    );
+  }
+
   void musicOff() {
     setState(() {
       isMusicPlaying = !isMusicPlaying;
@@ -44,6 +55,7 @@ class _MainState extends State<Main> {
       showBottomBar = true; // Обновляем состояние
     });
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -100,6 +112,7 @@ class _MainState extends State<Main> {
       // добавьте дополнительные словари для других карточек
     ];
     return Scaffold(
+      backgroundColor: Color(0xffd682eb),
       extendBody: true,
       body: SingleChildScrollView(
       child: Container(

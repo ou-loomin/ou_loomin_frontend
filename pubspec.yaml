@@ -48,7 +48,8 @@ dependencies:
   provider: ^6.0.5
   flutter_staggered_animations: ^1.0.0
   photo_view: ^0.13.0
-#  audioplayers: ^5.1.0
+  audioplayers: ^5.2.1
+  flip_card: ^0.7.0
 
 dev_dependencies:
   flutter_test:
@@ -85,6 +86,7 @@ flutter:
     - assets/page-1/images/vector-115.png
     - assets/page-1/images/aliana.png
     - assets/page-1/images/icon-chevronleft.png
+    - assets/page-1/images/mediplace.png
     - assets/page-1/images/ellipse-48-bg.png
     - assets/page-1/images/rectangle-79-bg.png
     - assets/page-1/images/rectangle-28-LTe.png
@@ -174,6 +176,12 @@ flutter:
     - assets/page-1/images/pp4.png
     - assets/page-1/images/pp5.png
     - assets/page-1/images/medi.png
+    - assets/Free_Test_Data_500KB_MP3.mp3
+    - assets/page-1/images/1.png
+    - assets/page-1/images/2.png
+    - assets/page-1/images/3.png
+    - assets/page-1/images/4.png
+    - assets/page-1/images/5.png
 
   fonts:
     - family: MyFlutterApp

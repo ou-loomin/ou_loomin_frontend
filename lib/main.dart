@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:myapp/pages/additionalinfo.dart';
 import 'package:myapp/pages/birthdate.dart';
+import 'package:myapp/pages/medimusic.dart';
+import 'package:myapp/pages/news1.dart';
 import 'package:myapp/pages/player.dart';
 import 'package:myapp/pages/tariff.dart';
+import 'package:myapp/pages/practaro.dart';
 import 'package:myapp/templates/player.dart';
 import 'package:myapp/pages/r2.dart';
 import 'package:myapp/pages/survey.dart';
@@ -72,7 +75,7 @@ class _MyAppState extends State<MyApp> {
 			title: 'OU LOOMIN',
 			debugShowCheckedModeBanner: false,
 			scrollBehavior: MyCustomScrollBehavior(),
-			color: Colors.transparent,
+			color: Color(0xffd682eb),
 			theme: ThemeData(
 				primarySwatch: Colors.indigo,
 			),
@@ -81,7 +84,7 @@ class _MyAppState extends State<MyApp> {
 		return false; // Запрещаем возврат на предыдущий экран
 		},
 		child: Scaffold(
-				backgroundColor: Colors.transparent,
+				backgroundColor: Color(0xffd682eb),
 				body: NotificationListener<OverscrollIndicatorNotification>(
 					onNotification: (overScroll){
 						overScroll.disallowIndicator();
@@ -91,16 +94,19 @@ class _MyAppState extends State<MyApp> {
 					body: SingleChildScrollView(
 							child:
 					// Main()
-					// 	MusicPlayerPage()
+					// 	MusicPlayer()
 					// Name()
 					// Birthdate()
-					OpenScreen()
+					// OpenScreen()
 					// Additional()
 					// Agreement()
 					// Survey()
 					// Login()
 					// Tariff()
+					// 	PracRunes()
+					// 	ArticlePage()
 					// MyPageView()
+						Music()
 					// 		isLoggedIn != null?
 					// 		isLoggedIn!
 					// 				? Main()
